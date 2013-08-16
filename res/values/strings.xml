@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Vegan Bingo</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_show_screen">Vegan Bingo</string>
+    <string name="screen_heading">Choice icon</string>
+    
+    <string name="bacon_description">Just saying Bacon/Steak etc</string>
+    <string name="bacon_main">This can occur in any number of places, on a social thread, in a conversation about food, over dinner etc.\nIn Internet terms this is called a Troll, someone deliberately saying some offensive because they think they are being clever, despite the fact it has little more intelligence or humour in it other than being offensive.\nIn deeper terms this is called a cold joke, trying to paint something as humourous to themselves in order to avoid dealing with the psychological ramifications of the immoral action they are participating in.\nOn some level they know what they are doing is wrong and they are doing what they can to push it away.</string>
+    
+    <string name="hitler_description">Hitler was a vegetarian</string>
+    <string name="hitler_main">Hitler, Pol Pot etc, often trudged out as examples of...well it is hard to say.  Really what it is about is the person trying to maintain their own sense of moral righteousness by slanderously associating you with some of the most evil people in history.\nThis is of course motivated by the fact that they know they are participating in something immoral, and rather than taking any action to stop this, are using anything they can grab on to to drag other people down to their level.\nHitler, Pol Pot, neither were ethical vegetarians, they did so for short periods due to health problems and Hitler certainly would rather be eating his favourite sausages.  The Nazis did enact some laws against animal cruelty, they also had the Winter Relief programme helping poor people during the cold months and anti smoking campaigns, so not everything they did was evil.</string>
+    
+    <string name="protein_description">Where do you get your protein?</string>
+    <string name="protein_main">Where did people get their obsession with asking about protein?  Meat and dairy industry propaganda which reaches far more people than any unbiased nutritional advice.\nThere has never been any study which has shown protein deficiency in people following a plant based diet.  Protein deficiency is unknown in any population who eats enough calories, regardless of what their diet is.  There may be some edge cases, but vegetarianism and veganism are not one of them.\nHow much protein do you need? You weight in kilograms times 0.8 to 1.8 depending on how much weight bearing or endurance exercise you do.</string>
+    
+    <string name="cheese_description">I could never give up cheese</string>
+    <string name="cheese_main">Of course the second part of this statement might be "No matter how much cruelty is involved".\nHopefully this is simply untrue, that people can be motivated by rational and ethical concerns.  If people understood that it wasn\'t a particularly healthy thing to eat, contributes to the veal trade in young calves, is environmentally polluting and unhealthy for the cows themselves, hopefully they could find the motivation to remove just one of the hundreds or thousands of ingredients in their diet.</string>
+
+
+</resources>

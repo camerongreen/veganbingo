@@ -1,0 +1,61 @@
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/org.camerongreen.veganbingo"
+    android:id="@+id/gridlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:columnCount="4"
+    app:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/baconButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_column="0"
+        app:layout_gravity="left|top"
+        app:layout_row="0"
+        android:background="@color/mygreen"
+        android:contentDescription="@string/bacon_description"
+        android:onClick="showScreen"
+        android:src="@drawable/bacon"
+        android:tag="bacon" />
+
+    <ImageButton
+        android:id="@+id/hitlerButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_column="1"
+        app:layout_gravity="left|top"
+        app:layout_row="0"
+        android:background="@color/myblue"
+        android:contentDescription="@string/hitler_description"
+        android:onClick="showScreen"
+        android:src="@drawable/hitler"
+        android:tag="hitler" />
+
+    <ImageButton
+        android:id="@+id/proteinButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_column="2"
+        app:layout_gravity="left|top"
+        app:layout_row="0"
+        android:background="@color/mypink"
+        android:contentDescription="@string/protein_description"
+        android:onClick="showScreen"
+        android:src="@drawable/protein"
+        android:tag="protein" />
+
+    <ImageButton
+        android:id="@+id/cheeseButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_column="3"
+        app:layout_gravity="left|top"
+        app:layout_row="0"
+        android:background="@color/myyellow"
+        android:contentDescription="@string/cheese_description"
+        android:onClick="showScreen"
+        android:src="@drawable/cheese"
+        android:tag="cheese" />
+
+</android.support.v7.widget.GridLayout>
