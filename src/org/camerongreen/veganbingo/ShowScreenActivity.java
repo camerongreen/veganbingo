@@ -18,23 +18,28 @@ public class ShowScreenActivity extends Activity {
 		setContentView(R.layout.activity_show_screen);
 		// Show the Up button in the action bar.
 		setupActionBar();
-		
+
 		Intent intent = getIntent();
-		
-		String button_clicked = intent.getStringExtra(MainActivity.BUTTON_CLICKED);
-		String button_clicked_message = intent.getStringExtra(MainActivity.BUTTON_CLICKED_MESSAGE);
-		
-		int imgId = getResources().getIdentifier("@drawable/" + button_clicked, "id", getPackageName());
+
+		String button_clicked = intent
+				.getStringExtra(MainActivity.BUTTON_CLICKED);
+		String button_clicked_message = intent
+				.getStringExtra(MainActivity.BUTTON_CLICKED_MESSAGE);
+
+		int imgId = getResources().getIdentifier("@drawable/" + button_clicked,
+				"id", getPackageName());
 		ImageView imageView = (ImageView) findViewById(R.id.main_icon);
 		imageView.setImageResource(imgId);
 
-		int stringId = getResources().getIdentifier("@string/" + button_clicked + "_main", "id", getPackageName());
+		int stringId = getResources().getIdentifier(
+				"@string/" + button_clicked + "_main", "id", getPackageName());
 		String mainTextVal = getResources().getString(stringId);
 		TextView mainText = (TextView) findViewById(R.id.main_content);
-		mainText.setText(mainTextVal.replace("\\n", System.getProperty("line.separator")));
+		mainText.setText(mainTextVal.replace("\\n",
+				System.getProperty("line.separator")));
 
 		TextView headingText = (TextView) findViewById(R.id.clickedButtonMessage);
-		headingText.setText(button_clicked_message);		
+		headingText.setText(button_clicked_message);
 	}
 
 	/**
