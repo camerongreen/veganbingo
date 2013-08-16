@@ -1,8 +1,8 @@
 <android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:grid="http://schemas.android.com/apk/org.camerongreen.veganbingo"
+    xmlns:grid="http://schemas.android.com/apk/res/org.camerongreen.veganbingo"
     android:id="@+id/gridlayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     grid:columnCount="4"
     grid:orientation="horizontal" >
 
@@ -58,4 +58,30 @@
         android:src="@drawable/cheese"
         android:tag="cheese" />
 
+    <ImageButton
+        android:id="@+id/cowButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="0"
+        grid:layout_gravity="left|top"
+        grid:layout_row="1"
+        android:background="@color/mypink"
+        android:contentDescription="@string/cow_description"
+        android:onClick="showScreen"
+        android:src="@drawable/cow"
+        android:tag="cow" />
+    
+    <ImageButton
+        android:id="@+id/plantsButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="1"
+        grid:layout_gravity="left|top"
+        grid:layout_row="1"
+        android:background="@color/myyellow"
+        android:contentDescription="@string/plants_description"
+        android:onClick="showScreen"
+        android:src="@drawable/plants"
+        android:tag="plants" />
+    
 </android.support.v7.widget.GridLayout>
