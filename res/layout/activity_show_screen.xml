@@ -8,14 +8,13 @@
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="100dp" >
+        android:layout_height="85dp" >
 
         <ImageView
             android:id="@+id/main_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/screen_heading"
-            android:src="@drawable/bacon" />
+            android:contentDescription="@string/screen_heading" />
 
         <TextView
             android:id="@+id/clickedButtonMessage"
@@ -31,14 +30,15 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/header"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="#fff" >
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/layout_bg" >
 
         <TextView
             android:id="@+id/main_content"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="8dp" />
     </RelativeLayout>
 
 </RelativeLayout>

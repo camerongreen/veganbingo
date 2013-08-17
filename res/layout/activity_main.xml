@@ -70,7 +70,7 @@
         android:onClick="showScreen"
         android:src="@drawable/cow"
         android:tag="cow" />
-    
+
     <ImageButton
         android:id="@+id/plantsButton"
         android:layout_width="80dp"
@@ -83,5 +83,135 @@
         android:onClick="showScreen"
         android:src="@drawable/plants"
         android:tag="plants" />
-    
+
+    <ImageButton
+        android:id="@+id/teethButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="2"
+        grid:layout_gravity="left|top"
+        grid:layout_row="1"
+        android:background="@color/mygreen"
+        android:contentDescription="@string/teeth_description"
+        android:onClick="showScreen"
+        android:src="@drawable/teeth"
+        android:tag="teeth" />
+
+    <ImageButton
+        android:id="@+id/humaneButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="3"
+        grid:layout_gravity="left|top"
+        grid:layout_row="1"
+        android:background="@color/myblue"
+        android:contentDescription="@string/humane_description"
+        android:onClick="showScreen"
+        android:src="@drawable/humane"
+        android:tag="humane" />
+
+    <ImageButton
+        android:id="@+id/foodButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="0"
+        grid:layout_gravity="left|top"
+        grid:layout_row="2"
+        android:background="@color/mygreen"
+        android:contentDescription="@string/food_description"
+        android:onClick="showScreen"
+        android:src="@drawable/food"
+        android:tag="food" />
+
+    <ImageButton
+        android:id="@+id/naturalButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="1"
+        grid:layout_gravity="left|top"
+        grid:layout_row="2"
+        android:background="@color/myblue"
+        android:contentDescription="@string/natural_description"
+        android:onClick="showScreen"
+        android:src="@drawable/natural"
+        android:tag="natural" />
+
+    <ImageButton
+        android:id="@+id/eatButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="2"
+        grid:layout_gravity="left|top"
+        grid:layout_row="2"
+        android:background="@color/mypink"
+        android:contentDescription="@string/eat_description"
+        android:onClick="showScreen"
+        android:src="@drawable/eat"
+        android:tag="eat" />
+
+    <ImageButton
+        android:id="@+id/notmuchButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="3"
+        grid:layout_gravity="left|top"
+        grid:layout_row="2"
+        android:background="@color/myyellow"
+        android:contentDescription="@string/notmuch_description"
+        android:onClick="showScreen"
+        android:src="@drawable/notmuch"
+        android:tag="notmuch" />
+
+    <ImageButton
+        android:id="@+id/whatButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="0"
+        grid:layout_gravity="left|top"
+        grid:layout_row="3"
+        android:background="@color/mypink"
+        android:contentDescription="@string/what_description"
+        android:onClick="showScreen"
+        android:src="@drawable/what"
+        android:tag="what" />
+
+    <ImageButton
+        android:id="@+id/cantButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="1"
+        grid:layout_gravity="left|top"
+        grid:layout_row="3"
+        android:background="@color/myyellow"
+        android:contentDescription="@string/cant_description"
+        android:onClick="showScreen"
+        android:src="@drawable/cant"
+        android:tag="cant" />
+
+    <ImageButton
+        android:id="@+id/aspirationalButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="2"
+        grid:layout_gravity="left|top"
+        grid:layout_row="3"
+        android:background="@color/mygreen"
+        android:contentDescription="@string/aspirational_description"
+        android:onClick="showScreen"
+        android:src="@drawable/aspirational"
+        android:tag="aspirational" />
+
+    <ImageButton
+        android:id="@+id/preachyButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        grid:layout_column="3"
+        grid:layout_gravity="left|top"
+        grid:layout_row="3"
+        android:background="@color/myblue"
+        android:contentDescription="@string/preachy_description"
+        android:onClick="showScreen"
+        android:src="@drawable/preachy"
+        android:tag="preachy" />
+
 </android.support.v7.widget.GridLayout>
