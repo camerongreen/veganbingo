@@ -16,12 +16,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ShowScreenActivity extends Activity {
-	private String prefKeyPrefix = "org.camerongreen.veganbingo";
 	private SharedPreferences sharedPref = null;
-
+	
 	private SharedPreferences getSharedPrefs() {
 		if (sharedPref == null) {
-			sharedPref = this.getSharedPreferences(prefKeyPrefix,
+			sharedPref = this.getSharedPreferences(getPackageName(),
 					Context.MODE_PRIVATE);
 		}
 		return sharedPref;
@@ -81,7 +80,7 @@ public class ShowScreenActivity extends Activity {
 	}
 
 	private int getIntPref(String key) {
-		String pref_key = prefKeyPrefix + "." + key;
+		String pref_key = getPackageName() + "." + key;
 		int pref_value = getSharedPrefs().getInt(pref_key, 0);
 		return pref_value;
 	}
@@ -89,7 +88,7 @@ public class ShowScreenActivity extends Activity {
 	public void toggleDone(View view) {
 		Button button_clicked = (Button) view;
 		String tag = (String) button_clicked.getTag();
-		String pref_key = prefKeyPrefix + "." + tag;
+		String pref_key = getPackageName() + "." + tag;
 		int pref_value = getIntPref(tag);
 
 		SharedPreferences.Editor editor = getSharedPrefs().edit();

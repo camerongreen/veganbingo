@@ -3,6 +3,7 @@ package org.camerongreen.veganbingo;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
 import android.view.Menu;
@@ -17,8 +18,10 @@ public class MainActivity extends Activity {
 			"cheese", "cow", "plants", "teeth", "food", "natural", "humane",
 			"eat", "notmuch", "what", "cant", "aspirational", "preachy" };
 	public final static String[] colours = { "mygreen", "myblue", "mypink",
-		"myyellow", "mypink", "myyellow", "mygreen", "myblue", "mygreen", "myblue", "mypink",
-		"myyellow", "mypink", "myyellow", "mygreen", "myblue"};
+			"myyellow", "mypink", "myyellow", "mygreen", "myblue", "mygreen",
+			"myblue", "mypink", "myyellow", "mypink", "myyellow", "mygreen",
+			"myblue" };
+	private SharedPreferences sharedPref = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,30 +44,35 @@ public class MainActivity extends Activity {
 				int imageId = getResources().getIdentifier("@drawable/" + tag,
 						"id", getPackageName());
 				btn.setImageResource(imageId);
-				int colourId = getResources().getIdentifier("@color/" + colours[place],
-						"id", getPackageName());
+				int colourId = getResources().getIdentifier(
+						"@color/" + colours[place], "id", getPackageName());
 				btn.setBackgroundResource(colourId);
 				btn.setTag(tag);
 				GridLayout.LayoutParams params = new GridLayout.LayoutParams();
 				params.rowSpec = GridLayout.spec(i);
 				params.columnSpec = GridLayout.spec(j);
 				btn.setLayoutParams(params);
+				int buttonClicked = getIntPref(tag);
+				if (buttonClicked == 1) {
+					btn.setAlpha(70);
+				}
 				btn.setOnClickListener(new View.OnClickListener() {
-					
+
 					@Override
 					public void onClick(View view) {
 						ImageButton button = (ImageButton) view;
 						Context context = view.getContext();
-						Intent intent = new Intent(context, ShowScreenActivity.class);
+						Intent intent = new Intent(context,
+								ShowScreenActivity.class);
 						intent.putExtra(BUTTON_CLICKED, "" + button.getTag());
-						intent.putExtra(BUTTON_CLICKED_MESSAGE, button.getContentDescription()
-								.toString());
+						intent.putExtra(BUTTON_CLICKED_MESSAGE, button
+								.getContentDescription().toString());
 						context.startActivity(intent);
 					}
 				});
 				int dpValue = 80;
 				float d = getResources().getDisplayMetrics().density;
-				int dimen = (int)(dpValue * d);
+				int dimen = (int) (dpValue * d);
 				grid.addView(btn, dimen, dimen);
 				++place;
 			}
@@ -72,12 +80,25 @@ public class MainActivity extends Activity {
 
 	}
 
+	private int getIntPref(String key) {
+		String pref_key = getPackageName() + "." + key;
+		int pref_value = getSharedPrefs().getInt(pref_key, 0);
+		return pref_value;
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	private SharedPreferences getSharedPrefs() {
+		if (sharedPref == null) {
+			sharedPref = this.getSharedPreferences(getPackageName(),
+					Context.MODE_PRIVATE);
+		}
+		return sharedPref;
 	}
 
 }
