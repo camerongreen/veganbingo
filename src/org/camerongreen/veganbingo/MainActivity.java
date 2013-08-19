@@ -1,11 +1,10 @@
 package org.camerongreen.veganbingo;
 
-import org.camerongreen.veganbingo.R;
-import org.camerongreen.veganbingo.ShowScreenActivity;
-
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayout;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
@@ -14,21 +13,65 @@ public class MainActivity extends Activity {
 
 	public final static String BUTTON_CLICKED = "org.camerongreen.veganbingo.BUTTON";
 	public final static String BUTTON_CLICKED_MESSAGE = "org.camerongreen.veganbingo.BUTTON_MESSAGE";
+	public final static String[] choices = { "bacon", "hitler", "protein",
+			"cheese", "cow", "plants", "teeth", "food", "natural", "humane",
+			"eat", "notmuch", "what", "cant", "aspirational", "preachy" };
+	public final static String[] colours = { "mygreen", "myblue", "mypink",
+		"myyellow", "mypink", "myyellow", "mygreen", "myblue", "mygreen", "myblue", "mypink",
+		"myyellow", "mypink", "myyellow", "mygreen", "myblue"};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		int gridSize = 4;
+		int place = 0;
+
+		GridLayout grid = (GridLayout) findViewById(R.id.gridlayout);
+
+		for (int i = 0; i < gridSize; i++) {
+			for (int j = 0; j < gridSize; j++) {
+				String tag = choices[place];
+				ImageButton btn = new ImageButton(this);
+				int stringId = getResources().getIdentifier(
+						"@string/" + tag + "_description", "id",
+						getPackageName());
+				btn.setContentDescription(getResources().getString(stringId));
+				int imageId = getResources().getIdentifier("@drawable/" + tag,
+						"id", getPackageName());
+				btn.setImageResource(imageId);
+				int colourId = getResources().getIdentifier("@color/" + colours[place],
+						"id", getPackageName());
+				btn.setBackgroundResource(colourId);
+				btn.setTag(tag);
+				GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+				params.rowSpec = GridLayout.spec(i);
+				params.columnSpec = GridLayout.spec(j);
+				btn.setLayoutParams(params);
+				btn.setOnClickListener(new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View view) {
+						ImageButton button = (ImageButton) view;
+						Context context = view.getContext();
+						Intent intent = new Intent(context, ShowScreenActivity.class);
+						intent.putExtra(BUTTON_CLICKED, "" + button.getTag());
+						intent.putExtra(BUTTON_CLICKED_MESSAGE, button.getContentDescription()
+								.toString());
+						context.startActivity(intent);
+					}
+				});
+				int dpValue = 80;
+				float d = getResources().getDisplayMetrics().density;
+				int dimen = (int)(dpValue * d);
+				grid.addView(btn, dimen, dimen);
+				++place;
+			}
+		}
+
 	}
 
-	public void showScreen(View view) {
-		Intent intent = new Intent(this, ShowScreenActivity.class);
-		ImageButton button = (ImageButton) view;
-		intent.putExtra(BUTTON_CLICKED, "" + button.getTag());
-		intent.putExtra(BUTTON_CLICKED_MESSAGE, button.getContentDescription()
-				.toString());
-		startActivity(intent);
-	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
