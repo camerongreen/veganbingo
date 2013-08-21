@@ -14,9 +14,9 @@ public class MainActivity extends Activity {
 
 	public final static String BUTTON_CLICKED = "org.camerongreen.veganbingo.BUTTON";
 	public final static String BUTTON_CLICKED_MESSAGE = "org.camerongreen.veganbingo.BUTTON_MESSAGE";
-	public final static String[] choices = { "bacon", "hitler", "protein",
+	public final static String[] choices = { "bacon", "preachy", "protein",
 			"cheese", "cow", "plants", "teeth", "food", "natural", "humane",
-			"eat", "notmuch", "what", "cant", "aspirational", "preachy" };
+			"eat", "notmuch", "what", "cant", "aspirational", "hitler" };
 	public final static String[] colours = { "mygreen", "myblue", "mypink",
 			"myyellow", "mypink", "myyellow", "mygreen", "myblue", "mygreen",
 			"myblue", "mypink", "myyellow", "mypink", "myyellow", "mygreen",
@@ -37,13 +37,21 @@ public class MainActivity extends Activity {
 			for (int j = 0; j < gridSize; j++) {
 				String tag = choices[place];
 				ImageButton btn = new ImageButton(this);
+				int buttonClicked = getIntPref(tag);
+				int imageId = 0; 
+				if (buttonClicked == 1) {
+					btn.setAlpha(175);
+					imageId = getResources().getIdentifier("@drawable/" + tag + "_done",
+							"id", getPackageName());
+				} else {
+					imageId = getResources().getIdentifier("@drawable/" + tag,
+							"id", getPackageName());
+				}
+				btn.setImageResource(imageId);
 				int stringId = getResources().getIdentifier(
 						"@string/" + tag + "_description", "id",
 						getPackageName());
 				btn.setContentDescription(getResources().getString(stringId));
-				int imageId = getResources().getIdentifier("@drawable/" + tag,
-						"id", getPackageName());
-				btn.setImageResource(imageId);
 				int colourId = getResources().getIdentifier(
 						"@color/" + colours[place], "id", getPackageName());
 				btn.setBackgroundResource(colourId);
@@ -52,10 +60,6 @@ public class MainActivity extends Activity {
 				params.rowSpec = GridLayout.spec(i);
 				params.columnSpec = GridLayout.spec(j);
 				btn.setLayoutParams(params);
-				int buttonClicked = getIntPref(tag);
-				if (buttonClicked == 1) {
-					btn.setAlpha(70);
-				}
 				btn.setOnClickListener(new View.OnClickListener() {
 
 					@Override

@@ -96,18 +96,41 @@ public class ShowScreenActivity extends Activity {
 			editor.remove(pref_key);
 			setDoneButtonDisplay(0, button_clicked);
 		} else {
+			int count = countPrefs();
+			if (count ==  0) {
+				doStart();
+			}
 			editor.putInt(pref_key, 1);
 			setDoneButtonDisplay(1, button_clicked);
-			checkForStartOrComplete();
+			if ((count + 1) ==  MainActivity.choices.length) {
+				doComplete();
+			}
 		}
 		editor.commit();
 	}
 	
-	public void checkForStartOrComplete() {
-		// go through and see if either first preference in which
-		// case we store a date stamp of now
-		
-		// else if all completed, we set date stamp of completed and do stuff
+	public int countPrefs() {
+		int count = 0;
+		for (int i = 0; i < MainActivity.choices.length; i++) {
+			count += getIntPref(MainActivity.choices[i]);
+		}
+		return count;
+	}
+
+	public void doStart() {
+		String pref_key = getPackageName() + ".started";
+
+		SharedPreferences.Editor editor = getSharedPrefs().edit();
+		editor.putLong(pref_key, System.currentTimeMillis());
+		editor.commit();	
+	}
+
+	public void doComplete() {
+		String end_pref_key = getPackageName() + ".finished";
+
+		SharedPreferences.Editor editor = getSharedPrefs().edit();
+		editor.putLong(end_pref_key, System.currentTimeMillis());
+		editor.commit();	
 	}
 
 	/**

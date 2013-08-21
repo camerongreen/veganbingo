@@ -5,5 +5,6 @@
     <color name="myyellow">#fbf7b8</color>
     <color name="mygreen">#b8fbc6</color>
     <color name="mygrey">#eee</color>
+    <color name="mydarkgrey">#666</color>
     
 </resources>
