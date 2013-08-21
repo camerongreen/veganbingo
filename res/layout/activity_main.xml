@@ -1,10 +1,91 @@
-<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:grid="http://schemas.android.com/apk/res/org.camerongreen.veganbingo"
-    android:id="@+id/gridlayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    grid:columnCount="4"
-    grid:orientation="horizontal"
-    android:background="@color/mydarkgrey" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/mydarkgrey"
+    android:gravity="center" 
+    android:paddingTop="0dp">
 
-</android.support.v7.widget.GridLayout>
+    <RelativeLayout
+        android:id="@+id/score_container"
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/score_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="@string/score_text"
+            android:textColor="@color/mywhite"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/score_text"
+            android:textColor="@color/mywhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.GridLayout
+        xmlns:grid="http://schemas.android.com/apk/res/org.camerongreen.veganbingo"
+        android:id="@+id/gridlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/score_container"
+        grid:columnCount="4"
+        grid:orientation="horizontal" >
+    </android.support.v7.widget.GridLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gridlayout"
+        android:layout_marginTop="16dp"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/started_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="@string/started_text"
+            android:textColor="@color/mywhite"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/started"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/started_text"
+            android:textColor="@color/mywhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/finished_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/started_text"
+            android:layout_marginRight="8dp"
+            android:text="@string/finished_text"
+            android:textColor="@color/mywhite"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/finished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/started"
+            android:layout_toRightOf="@+id/finished_text"
+            android:textColor="@color/mywhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</RelativeLayout>

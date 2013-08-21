@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 public class ShowScreenActivity extends Activity {
 	private SharedPreferences sharedPref = null;
-	
+
 	private SharedPreferences getSharedPrefs() {
 		if (sharedPref == null) {
 			sharedPref = this.getSharedPreferences(getPackageName(),
@@ -92,23 +92,27 @@ public class ShowScreenActivity extends Activity {
 		int pref_value = getIntPref(tag);
 
 		SharedPreferences.Editor editor = getSharedPrefs().edit();
+		int count = countPrefs();
 		if (pref_value != 0) {
 			editor.remove(pref_key);
 			setDoneButtonDisplay(0, button_clicked);
+			if (count == 1) {
+				String start_key = getPackageName() + ".started";
+				editor.remove(start_key);
+			}
 		} else {
-			int count = countPrefs();
-			if (count ==  0) {
+			if (count == 0) {
 				doStart();
 			}
 			editor.putInt(pref_key, 1);
 			setDoneButtonDisplay(1, button_clicked);
-			if ((count + 1) ==  MainActivity.choices.length) {
+			if ((count + 1) == MainActivity.choices.length) {
 				doComplete();
 			}
 		}
 		editor.commit();
 	}
-	
+
 	public int countPrefs() {
 		int count = 0;
 		for (int i = 0; i < MainActivity.choices.length; i++) {
@@ -122,7 +126,7 @@ public class ShowScreenActivity extends Activity {
 
 		SharedPreferences.Editor editor = getSharedPrefs().edit();
 		editor.putLong(pref_key, System.currentTimeMillis());
-		editor.commit();	
+		editor.commit();
 	}
 
 	public void doComplete() {
@@ -130,7 +134,7 @@ public class ShowScreenActivity extends Activity {
 
 		SharedPreferences.Editor editor = getSharedPrefs().edit();
 		editor.putLong(end_pref_key, System.currentTimeMillis());
-		editor.commit();	
+		editor.commit();
 	}
 
 	/**
