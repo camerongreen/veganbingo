@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,22 +15,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ShowScreenActivity extends Activity {
-	private SharedPreferences sharedPref = null;
-
-	private SharedPreferences getSharedPrefs() {
-		if (sharedPref == null) {
-			sharedPref = this.getSharedPreferences(getPackageName(),
-					Context.MODE_PRIVATE);
-		}
-		return sharedPref;
-	}
-
+	private MyPrefs prefs = null; // needs to work not only on oncreate
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_screen);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		prefs = new MyPrefs(getSharedPreferences(MainActivity.PACKAGE_NAME,
+				Context.MODE_PRIVATE));
 
 		Intent intent = getIntent();
 
@@ -55,7 +49,7 @@ public class ShowScreenActivity extends Activity {
 		TextView headingText = (TextView) findViewById(R.id.clickedButtonMessage);
 		headingText.setText(button_clicked_message);
 
-		int pref_value = getIntPref(button_clicked);
+		int pref_value = prefs.getIntPref(button_clicked);
 
 		Button doneButton = (Button) findViewById(R.id.done_button);
 		doneButton.setTag(button_clicked);
@@ -79,62 +73,36 @@ public class ShowScreenActivity extends Activity {
 		doneButton.setCompoundDrawables(image, null, null, null);
 	}
 
-	private int getIntPref(String key) {
-		String pref_key = getPackageName() + "." + key;
-		int pref_value = getSharedPrefs().getInt(pref_key, 0);
-		return pref_value;
-	}
-
 	public void toggleDone(View view) {
 		Button button_clicked = (Button) view;
 		String tag = (String) button_clicked.getTag();
-		String pref_key = getPackageName() + "." + tag;
-		int pref_value = getIntPref(tag);
+		int pref_value = prefs.getIntPref(tag);
 
-		SharedPreferences.Editor editor = getSharedPrefs().edit();
-		int count = countPrefs();
+		int count = prefs.countPrefs(MainActivity.choices);
 		if (pref_value != 0) {
-			editor.remove(pref_key);
+			prefs.remove(tag);
 			setDoneButtonDisplay(0, button_clicked);
 			if (count == 1) {
-				String start_key = getPackageName() + ".started";
-				editor.remove(start_key);
+				prefs.remove("started");
 			}
 		} else {
 			if (count == 0) {
 				doStart();
 			}
-			editor.putInt(pref_key, 1);
+			prefs.putIntPref(tag, 1);
 			setDoneButtonDisplay(1, button_clicked);
 			if ((count + 1) == MainActivity.choices.length) {
 				doComplete();
 			}
 		}
-		editor.commit();
-	}
-
-	public int countPrefs() {
-		int count = 0;
-		for (int i = 0; i < MainActivity.choices.length; i++) {
-			count += getIntPref(MainActivity.choices[i]);
-		}
-		return count;
 	}
 
 	public void doStart() {
-		String pref_key = getPackageName() + ".started";
-
-		SharedPreferences.Editor editor = getSharedPrefs().edit();
-		editor.putLong(pref_key, System.currentTimeMillis());
-		editor.commit();
+		prefs.putLongPref("started", System.currentTimeMillis());
 	}
 
 	public void doComplete() {
-		String end_pref_key = getPackageName() + ".finished";
-
-		SharedPreferences.Editor editor = getSharedPrefs().edit();
-		editor.putLong(end_pref_key, System.currentTimeMillis());
-		editor.commit();
+		prefs.putLongPref("Finished", System.currentTimeMillis());
 	}
 
 	/**

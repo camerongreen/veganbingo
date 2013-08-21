@@ -6,7 +6,6 @@ import java.util.Date;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
 import android.view.Menu;
@@ -15,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+	public static String PACKAGE_NAME;
 
 	public final static String BUTTON_CLICKED = "org.camerongreen.veganbingo.BUTTON";
 	public final static String BUTTON_CLICKED_MESSAGE = "org.camerongreen.veganbingo.BUTTON_MESSAGE";
@@ -25,42 +25,46 @@ public class MainActivity extends Activity {
 			"myyellow", "mypink", "myyellow", "mygreen", "myblue", "mygreen",
 			"myblue", "mypink", "myyellow", "mypink", "myyellow", "mygreen",
 			"myblue" };
-	private SharedPreferences sharedPref = null;
+	private MyPrefs prefs = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		int gridSize = 4;
-		int place = 0;
-		int clicked = 0;
+		PACKAGE_NAME = getPackageName();
+		prefs = new MyPrefs(getSharedPreferences(MainActivity.PACKAGE_NAME,
+				Context.MODE_PRIVATE));
 
+		int gridSize = 4;
+		int choicesCompleted = 0;
+		
 		GridLayout grid = (GridLayout) findViewById(R.id.gridlayout);
 
 		for (int i = 0; i < gridSize; i++) {
 			for (int j = 0; j < gridSize; j++) {
+				int place = (i * gridSize) + j;
 				String tag = choices[place];
 				ImageButton btn = new ImageButton(this);
-				int buttonClicked = getIntPref(tag);
+				int buttonClicked = prefs.getIntPref(tag);
 				int imageId = 0;
-				if (buttonClicked == 1) {
-					clicked++;
+				if (buttonClicked >= 1) {
+					choicesCompleted++;
 					btn.setAlpha(175);
 					imageId = getResources().getIdentifier(
 							"@drawable/" + tag + "_done", "id",
-							getPackageName());
+							PACKAGE_NAME);
 				} else {
 					imageId = getResources().getIdentifier("@drawable/" + tag,
-							"id", getPackageName());
+							"id", PACKAGE_NAME);
 				}
 				btn.setImageResource(imageId);
 				int stringId = getResources().getIdentifier(
 						"@string/" + tag + "_description", "id",
-						getPackageName());
+						PACKAGE_NAME);
 				btn.setContentDescription(getResources().getString(stringId));
 				int colourId = getResources().getIdentifier(
-						"@color/" + colours[place], "id", getPackageName());
+						"@color/" + colours[place], "id", PACKAGE_NAME);
 				btn.setBackgroundResource(colourId);
 				btn.setTag(tag);
 				GridLayout.LayoutParams params = new GridLayout.LayoutParams();
@@ -85,15 +89,14 @@ public class MainActivity extends Activity {
 				float d = getResources().getDisplayMetrics().density;
 				int dimen = (int) (dpValue * d);
 				grid.addView(btn, dimen, dimen);
-				++place;
 			}
 
 			TextView score = (TextView) findViewById(R.id.score);
-			score.setText(clicked + "/" + choices.length);
+			score.setText(choicesCompleted + "/" + choices.length);
 
 			TextView started = (TextView) findViewById(R.id.started);
-			long startedMilli = getLongPref("started");
-			if (clicked == 0) {
+			long startedMilli = prefs.getLongPref("started");
+			if (choicesCompleted == 0) {
 				String not_started = getResources().getString(R.string.not_started_text);
 				started.setText(not_started);
 			} else {
@@ -104,8 +107,8 @@ public class MainActivity extends Activity {
 			}
 			TextView finished = (TextView) findViewById(R.id.finished);
 			
-			long finishedMilli = getLongPref("finished");
-			if (clicked != 16) {
+			long finishedMilli = prefs.getLongPref("finished");
+			if (choicesCompleted != choices.length) {
 				String not_finished = getResources().getString(R.string.not_started_text);
 				finished.setText(not_finished);
 			} else {
@@ -118,31 +121,11 @@ public class MainActivity extends Activity {
 
 	}
 
-	private long getLongPref(String key) {
-		String pref_key = getPackageName() + "." + key;
-		long pref_value = getSharedPrefs().getLong(pref_key, 0l);
-		return pref_value;
-	}
-
-	private int getIntPref(String key) {
-		String pref_key = getPackageName() + "." + key;
-		int pref_value = getSharedPrefs().getInt(pref_key, 0);
-		return pref_value;
-	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
-	}
-
-	private SharedPreferences getSharedPrefs() {
-		if (sharedPref == null) {
-			sharedPref = this.getSharedPreferences(getPackageName(),
-					Context.MODE_PRIVATE);
-		}
-		return sharedPref;
 	}
 
 }
