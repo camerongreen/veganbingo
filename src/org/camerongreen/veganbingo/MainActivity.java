@@ -17,15 +17,14 @@ public class MainActivity extends Activity {
 	public static String PACKAGE_NAME;
 
 	public final static String BUTTON_CLICKED = "org.camerongreen.veganbingo.BUTTON";
-	public final static String BUTTON_CLICKED_MESSAGE = "org.camerongreen.veganbingo.BUTTON_MESSAGE";
 	public final static String[] choices = { "bacon", "preachy", "protein",
 			"cheese", "cow", "plants", "teeth", "food", "natural", "humane",
 			"eat", "notmuch", "what", "cant", "aspirational", "hitler" };
 	public final static String[] colours = { "mygreen", "myblue", "mypink",
-			"myyellow", "mypink", "myyellow", "mygreen", "myblue", "mygreen",
-			"myblue", "mypink", "myyellow", "mypink", "myyellow", "mygreen",
-			"myblue" };
+			"myyellow", "mypink", "myyellow", "mygreen", "myblue" };
 	private MyPrefs prefs = null;
+	private int gridSize = 4;
+	private int buttonSizeDp = 80;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,92 +32,129 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		PACKAGE_NAME = getPackageName();
+
 		prefs = new MyPrefs(getSharedPreferences(MainActivity.PACKAGE_NAME,
 				Context.MODE_PRIVATE));
 
-		int gridSize = 4;
 		int choicesCompleted = 0;
-		
+
 		GridLayout grid = (GridLayout) findViewById(R.id.gridlayout);
 
 		for (int i = 0; i < gridSize; i++) {
 			for (int j = 0; j < gridSize; j++) {
-				int place = (i * gridSize) + j;
+				int place = getPlace(i, j);
 				String tag = choices[place];
-				ImageButton btn = new ImageButton(this);
+				
 				int buttonClicked = prefs.getIntPref(tag);
-				int imageId = 0;
-				if (buttonClicked >= 1) {
-					choicesCompleted++;
-					btn.setAlpha(175);
-					imageId = getResources().getIdentifier(
-							"@drawable/" + tag + "_done", "id",
-							PACKAGE_NAME);
-				} else {
-					imageId = getResources().getIdentifier("@drawable/" + tag,
-							"id", PACKAGE_NAME);
+				
+				if (buttonClicked == 1) {
+					++choicesCompleted;
 				}
-				btn.setImageResource(imageId);
-				int stringId = getResources().getIdentifier(
-						"@string/" + tag + "_description", "id",
-						PACKAGE_NAME);
-				btn.setContentDescription(getResources().getString(stringId));
-				int colourId = getResources().getIdentifier(
-						"@color/" + colours[place], "id", PACKAGE_NAME);
-				btn.setBackgroundResource(colourId);
-				btn.setTag(tag);
-				GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-				params.rowSpec = GridLayout.spec(i);
-				params.columnSpec = GridLayout.spec(j);
-				btn.setLayoutParams(params);
-				btn.setOnClickListener(new View.OnClickListener() {
-
-					@Override
-					public void onClick(View view) {
-						ImageButton button = (ImageButton) view;
-						Context context = view.getContext();
-						Intent intent = new Intent(context,
-								ShowScreenActivity.class);
-						intent.putExtra(BUTTON_CLICKED, "" + button.getTag());
-						intent.putExtra(BUTTON_CLICKED_MESSAGE, button
-								.getContentDescription().toString());
-						context.startActivity(intent);
-					}
-				});
-				int dpValue = 80;
+				
+				ImageButton btn = makeButton(buttonClicked, i, j, tag);
+				
 				float d = getResources().getDisplayMetrics().density;
-				int dimen = (int) (dpValue * d);
+				int dimen = (int) (buttonSizeDp * d);
 				grid.addView(btn, dimen, dimen);
 			}
 
-			TextView score = (TextView) findViewById(R.id.score);
-			score.setText(choicesCompleted + "/" + choices.length);
+			showScore(choicesCompleted);
 
-			TextView started = (TextView) findViewById(R.id.started);
-			long startedMilli = prefs.getLongPref("started");
-			if (choicesCompleted == 0) {
-				String not_started = getResources().getString(R.string.not_started_text);
-				started.setText(not_started);
-			} else {
-				Date startedDate = new Date(startedMilli);
-				String startedString = DateFormat.getDateTimeInstance().format(
-						startedDate);
-				started.setText(startedString);
-			}
-			TextView finished = (TextView) findViewById(R.id.finished);
+			showStarted(choicesCompleted);
 			
-			long finishedMilli = prefs.getLongPref("finished");
-			if (choicesCompleted != choices.length) {
-				String not_finished = getResources().getString(R.string.not_started_text);
-				finished.setText(not_finished);
-			} else {
-				Date finishedDate = new Date(finishedMilli);
-				String finishedString = DateFormat.getDateTimeInstance().format(
-						finishedDate);
-				finished.setText(finishedString);
-			}
+			showFinished(choicesCompleted);
 		}
 
+	}
+
+	private int getPlace(int i, int j) {
+		int place = (i * gridSize) + j;
+		return place;
+	}
+
+	private ImageButton makeButton(int buttonClicked, int i, int j,	String tag) {
+		ImageButton btn = new ImageButton(this);
+		
+		int place = getPlace(i, j);
+		
+		String imageIdString;
+		
+		if (buttonClicked >= 1) {
+			btn.setAlpha(175);
+			imageIdString = "@drawable/" + tag + "_done";
+		} else {
+			imageIdString = "@drawable/" + tag;
+		}
+
+		int imageId = getResources().getIdentifier(imageIdString, "id",
+				PACKAGE_NAME);
+		btn.setImageResource(imageId);
+		
+		int stringId = getResources().getIdentifier(
+				"@string/" + tag + "_description", "id", PACKAGE_NAME);
+		btn.setContentDescription(getResources().getString(stringId));
+		
+		int colourId = getResources().getIdentifier(
+				"@color/" + colours[place % colours.length], "id",
+				PACKAGE_NAME);
+		
+		btn.setBackgroundResource(colourId);
+		btn.setTag(tag);
+
+		GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+		params.rowSpec = GridLayout.spec(i);
+		params.columnSpec = GridLayout.spec(j);
+		btn.setLayoutParams(params);
+		btn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				ImageButton button = (ImageButton) view;
+				Context context = view.getContext();
+				Intent intent = new Intent(context,
+						ShowScreenActivity.class);
+				intent.putExtra(BUTTON_CLICKED, "" + button.getTag());
+				context.startActivity(intent);
+			}
+		});
+		
+		return btn;
+	}
+
+	private void showFinished(int choicesCompleted) {
+		TextView finished = (TextView) findViewById(R.id.finished);
+
+		long finishedMilli = prefs.getLongPref("finished");
+		if (choicesCompleted != choices.length) {
+			String not_finished = getResources().getString(
+					R.string.not_started_text);
+			finished.setText(not_finished);
+		} else {
+			Date finishedDate = new Date(finishedMilli);
+			String finishedString = DateFormat.getDateTimeInstance()
+					.format(finishedDate);
+			finished.setText(finishedString);
+		}
+	}
+
+	private void showStarted(int choicesCompleted) {
+		TextView started = (TextView) findViewById(R.id.started);
+		long startedMilli = prefs.getLongPref("started");
+		
+		if (choicesCompleted == 0) {
+			String not_started = getResources().getString(
+					R.string.not_started_text);
+			started.setText(not_started);
+		} else {
+			Date startedDate = new Date(startedMilli);
+			String startedString = DateFormat.getDateTimeInstance().format(
+					startedDate);
+			started.setText(startedString);
+		}
+	}
+
+	private void showScore(int choicesCompleted) {
+		TextView score = (TextView) findViewById(R.id.score);
+		score.setText(choicesCompleted + "/" + choices.length);
 	}
 
 	@Override

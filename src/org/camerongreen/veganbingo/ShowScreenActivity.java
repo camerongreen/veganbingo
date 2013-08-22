@@ -29,32 +29,45 @@ public class ShowScreenActivity extends Activity {
 
 		Intent intent = getIntent();
 
+		// which button was clicked?
 		String button_clicked = intent
 				.getStringExtra(MainActivity.BUTTON_CLICKED);
-		String button_clicked_message = intent
-				.getStringExtra(MainActivity.BUTTON_CLICKED_MESSAGE);
+		setImageView(R.id.main_icon, button_clicked);
 
-		int imgId = getResources().getIdentifier("@drawable/" + button_clicked,
-				"id", getPackageName());
-		ImageView imageView = (ImageView) findViewById(R.id.main_icon);
-		imageView.setImageResource(imgId);
-
-		int stringId = getResources().getIdentifier(
-				"@string/" + button_clicked + "_main", "id", getPackageName());
-		String mainTextVal = getResources().getString(stringId);
-		TextView mainText = (TextView) findViewById(R.id.main_content);
-		mainText.setText(mainTextVal.replace("\\\n",
-				System.getProperty("line.separator")));
-
-		TextView headingText = (TextView) findViewById(R.id.clickedButtonMessage);
-		headingText.setText(button_clicked_message);
-
-		int pref_value = prefs.getIntPref(button_clicked);
-
+		// add the tag to the done button so we can set prefs
+		// when they click it later
 		Button doneButton = (Button) findViewById(R.id.done_button);
 		doneButton.setTag(button_clicked);
-
+		// which icon should we show, done or not done
+		int pref_value = prefs.getIntPref(button_clicked);
 		setDoneButtonDisplay(pref_value, doneButton);
+		
+		String button_clicked_message = getString(button_clicked + "_description");
+		setTextView(R.id.clickedButtonMessage, button_clicked_message);
+
+		String mainTextVal = getString(button_clicked + "_main");
+		setTextView(R.id.main_content, mainTextVal.replace("\\\n",
+				System.getProperty("line.separator")));
+		
+	}
+
+	private void setImageView(int viewId, String resourceName) {
+		int imgId = getResources().getIdentifier("@drawable/" + resourceName,
+				"id", getPackageName());
+		ImageView imageView = (ImageView) findViewById(viewId);
+		imageView.setImageResource(imgId);
+	}
+
+	private void setTextView(int id, String text) {
+		TextView tv = (TextView) findViewById(id);
+		tv.setText(text);
+	}
+
+	private String getString(String resourceName) {
+		int stringId = getResources().getIdentifier(
+				"@string/" + resourceName, "id", getPackageName());
+		String message = getResources().getString(stringId);
+		return message;
 	}
 
 	private void setDoneButtonDisplay(int pref_value, Button doneButton) {
@@ -82,10 +95,15 @@ public class ShowScreenActivity extends Activity {
 		if (pref_value != 0) {
 			prefs.remove(tag);
 			setDoneButtonDisplay(0, button_clicked);
+			// if there is only one option and we are removing it
+			// here, remove the started timer
 			if (count == 1) {
 				prefs.remove("started");
 			}
+			// we can never be finished if we are removing one
+			prefs.remove("finished");
 		} else {
+			// go...
 			if (count == 0) {
 				doStart();
 			}
