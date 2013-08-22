@@ -1,10 +1,8 @@
 package org.camerongreen.veganbingo;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 
-public class MyPrefs extends Activity {
+public class MyPrefs {
 
 	private SharedPreferences sharedPref = null;
 	private SharedPreferences.Editor editor = null;
@@ -24,8 +22,8 @@ public class MyPrefs extends Activity {
 		return pkg + "." + key;
 	}
 
-	public void putIntPref(String key, int value) {
-		getEditor().putInt(makeKey(key), value);
+	public void putBooleanPref(String key, boolean value) {
+		getEditor().putBoolean(makeKey(key), value);
 		getEditor().commit();
 	}
 
@@ -39,15 +37,15 @@ public class MyPrefs extends Activity {
 		return pref_value;
 	}
 
-	public int getIntPref(String key) {
-		int pref_value = getSharedPrefs().getInt(makeKey(key), 0);
+	public boolean getBooleanPref(String key) {
+		boolean pref_value = getSharedPrefs().getBoolean(makeKey(key), false);
 		return pref_value;
 	}
 	
 	public int countPrefs(String[] choices) {
 		int count = 0;
 		for (int i = 0; i < choices.length; i++) {
-			count += getIntPref(choices[i]);
+			count += getBooleanPref(choices[i]) ? 1 : 0;
 		}
 		return count;
 	}

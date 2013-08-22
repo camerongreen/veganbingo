@@ -39,7 +39,7 @@ public class ShowScreenActivity extends Activity {
 		Button doneButton = (Button) findViewById(R.id.done_button);
 		doneButton.setTag(button_clicked);
 		// which icon should we show, done or not done
-		int pref_value = prefs.getIntPref(button_clicked);
+		boolean pref_value = prefs.getBooleanPref(button_clicked);
 		setDoneButtonDisplay(pref_value, doneButton);
 		
 		String button_clicked_message = getString(button_clicked + "_description");
@@ -70,9 +70,9 @@ public class ShowScreenActivity extends Activity {
 		return message;
 	}
 
-	private void setDoneButtonDisplay(int pref_value, Button doneButton) {
+	private void setDoneButtonDisplay(boolean done, Button doneButton) {
 		int icon = 0;
-		if (pref_value != 0) {
+		if (done) {
 			icon = android.R.drawable.btn_star_big_on;
 			doneButton.setText(getResources().getString(
 					R.string.done_button_uncheck));
@@ -87,41 +87,14 @@ public class ShowScreenActivity extends Activity {
 	}
 
 	public void toggleDone(View view) {
-		Button button_clicked = (Button) view;
-		String tag = (String) button_clicked.getTag();
-		int pref_value = prefs.getIntPref(tag);
+		Button button = (Button) view;
+		String tag = (String) button.getTag();
 
-		int count = prefs.countPrefs(MainActivity.choices);
-		if (pref_value != 0) {
-			prefs.remove(tag);
-			setDoneButtonDisplay(0, button_clicked);
-			// if there is only one option and we are removing it
-			// here, remove the started timer
-			if (count == 1) {
-				prefs.remove("started");
-			}
-			// we can never be finished if we are removing one
-			prefs.remove("finished");
-		} else {
-			// go...
-			if (count == 0) {
-				doStart();
-			}
-			prefs.putIntPref(tag, 1);
-			setDoneButtonDisplay(1, button_clicked);
-			if ((count + 1) == MainActivity.choices.length) {
-				doComplete();
-			}
-		}
+		BingoState bingo = new BingoState(prefs);
+		boolean done = bingo.toggleDone(tag);
+		setDoneButtonDisplay(done, button);
 	}
 
-	public void doStart() {
-		prefs.putLongPref("started", System.currentTimeMillis());
-	}
-
-	public void doComplete() {
-		prefs.putLongPref("Finished", System.currentTimeMillis());
-	}
 
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.

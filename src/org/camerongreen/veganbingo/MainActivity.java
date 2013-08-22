@@ -36,8 +36,6 @@ public class MainActivity extends Activity {
 		prefs = new MyPrefs(getSharedPreferences(MainActivity.PACKAGE_NAME,
 				Context.MODE_PRIVATE));
 
-		int choicesCompleted = 0;
-
 		GridLayout grid = (GridLayout) findViewById(R.id.gridlayout);
 
 		for (int i = 0; i < gridSize; i++) {
@@ -45,11 +43,7 @@ public class MainActivity extends Activity {
 				int place = getPlace(i, j);
 				String tag = choices[place];
 				
-				int buttonClicked = prefs.getIntPref(tag);
-				
-				if (buttonClicked == 1) {
-					++choicesCompleted;
-				}
+				boolean buttonClicked = prefs.getBooleanPref(tag);
 				
 				ImageButton btn = makeButton(buttonClicked, i, j, tag);
 				
@@ -58,13 +52,17 @@ public class MainActivity extends Activity {
 				grid.addView(btn, dimen, dimen);
 			}
 
-			showScore(choicesCompleted);
-
-			showStarted(choicesCompleted);
-			
-			showFinished(choicesCompleted);
+			updateStats();
 		}
 
+	}
+
+	private void updateStats() {
+		int choicesCompleted = prefs.countPrefs(choices);
+		
+		showScore(choicesCompleted);
+		showStarted(choicesCompleted);
+		showFinished(choicesCompleted);
 	}
 
 	private int getPlace(int i, int j) {
@@ -72,35 +70,24 @@ public class MainActivity extends Activity {
 		return place;
 	}
 
-	private ImageButton makeButton(int buttonClicked, int i, int j,	String tag) {
+	private ImageButton makeButton(boolean buttonClicked, int i, int j,	String tag) {
 		ImageButton btn = new ImageButton(this);
 		
 		int place = getPlace(i, j);
 		
-		String imageIdString;
-		
-		if (buttonClicked >= 1) {
-			btn.setAlpha(175);
-			imageIdString = "@drawable/" + tag + "_done";
-		} else {
-			imageIdString = "@drawable/" + tag;
-		}
-
-		int imageId = getResources().getIdentifier(imageIdString, "id",
-				PACKAGE_NAME);
-		btn.setImageResource(imageId);
-		
 		int stringId = getResources().getIdentifier(
 				"@string/" + tag + "_description", "id", PACKAGE_NAME);
 		btn.setContentDescription(getResources().getString(stringId));
-		
+
 		int colourId = getResources().getIdentifier(
 				"@color/" + colours[place % colours.length], "id",
 				PACKAGE_NAME);
-		
 		btn.setBackgroundResource(colourId);
+		
 		btn.setTag(tag);
 
+		setButtonImage(buttonClicked, btn);
+		
 		GridLayout.LayoutParams params = new GridLayout.LayoutParams();
 		params.rowSpec = GridLayout.spec(i);
 		params.columnSpec = GridLayout.spec(j);
@@ -116,8 +103,40 @@ public class MainActivity extends Activity {
 				context.startActivity(intent);
 			}
 		});
+		btn.setOnLongClickListener(new View.OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View view) {
+				ImageButton button = (ImageButton) view;
+				String tag = (String) button.getTag();
+				
+				BingoState bingo = new BingoState(prefs);
+				boolean done = bingo.toggleDone(tag);
+				
+				setButtonImage(done, button);
+				
+				updateStats();
+				return true;
+			}
+		});
 		
 		return btn;
+	}
+
+	private void setButtonImage(boolean buttonDone, ImageButton btn) {
+		String tag = (String) btn.getTag();
+		String imageIdString;
+		
+		if (buttonDone) {
+			btn.setAlpha(175);
+			imageIdString = "@drawable/" + tag + "_done";
+		} else {
+			btn.setAlpha(255);
+			imageIdString = "@drawable/" + tag;
+		}
+
+		int imageId = getResources().getIdentifier(imageIdString, "id",
+				PACKAGE_NAME);
+		btn.setImageResource(imageId);
 	}
 
 	private void showFinished(int choicesCompleted) {
