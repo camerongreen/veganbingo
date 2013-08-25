@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -42,11 +43,11 @@ public class MainActivity extends Activity {
 			for (int j = 0; j < gridSize; j++) {
 				int place = getPlace(i, j);
 				String tag = choices[place];
-				
+
 				boolean buttonClicked = prefs.getBooleanPref(tag);
-				
+
 				ImageButton btn = makeButton(buttonClicked, i, j, tag);
-				
+
 				float d = getResources().getDisplayMetrics().density;
 				int dimen = (int) (buttonSizeDp * d);
 				grid.addView(btn, dimen, dimen);
@@ -59,7 +60,7 @@ public class MainActivity extends Activity {
 
 	private void updateStats() {
 		int choicesCompleted = prefs.countPrefs(choices);
-		
+
 		showScore(choicesCompleted);
 		showStarted(choicesCompleted);
 		showFinished(choicesCompleted);
@@ -70,24 +71,25 @@ public class MainActivity extends Activity {
 		return place;
 	}
 
-	private ImageButton makeButton(boolean buttonClicked, int i, int j,	String tag) {
+	private ImageButton makeButton(boolean buttonClicked, int i, int j,
+			String tag) {
 		ImageButton btn = new ImageButton(this);
-		
+
 		int place = getPlace(i, j);
-		
+
 		int stringId = getResources().getIdentifier(
 				"@string/" + tag + "_description", "id", PACKAGE_NAME);
 		btn.setContentDescription(getResources().getString(stringId));
 
-		int colourId = getResources().getIdentifier(
-				"@color/" + colours[place % colours.length], "id",
-				PACKAGE_NAME);
+		int colourId = getResources()
+				.getIdentifier("@color/" + colours[place % colours.length],
+						"id", PACKAGE_NAME);
 		btn.setBackgroundResource(colourId);
-		
+
 		btn.setTag(tag);
 
 		setButtonImage(buttonClicked, btn);
-		
+
 		GridLayout.LayoutParams params = new GridLayout.LayoutParams();
 		params.rowSpec = GridLayout.spec(i);
 		params.columnSpec = GridLayout.spec(j);
@@ -97,8 +99,7 @@ public class MainActivity extends Activity {
 			public void onClick(View view) {
 				ImageButton button = (ImageButton) view;
 				Context context = view.getContext();
-				Intent intent = new Intent(context,
-						ShowScreenActivity.class);
+				Intent intent = new Intent(context, ShowScreenActivity.class);
 				intent.putExtra(BUTTON_CLICKED, "" + button.getTag());
 				context.startActivity(intent);
 			}
@@ -108,24 +109,24 @@ public class MainActivity extends Activity {
 			public boolean onLongClick(View view) {
 				ImageButton button = (ImageButton) view;
 				String tag = (String) button.getTag();
-				
+
 				BingoState bingo = new BingoState(prefs);
 				boolean done = bingo.toggleDone(tag);
-				
+
 				setButtonImage(done, button);
-				
+
 				updateStats();
 				return true;
 			}
 		});
-		
+
 		return btn;
 	}
 
 	private void setButtonImage(boolean buttonDone, ImageButton btn) {
 		String tag = (String) btn.getTag();
 		String imageIdString;
-		
+
 		if (buttonDone) {
 			btn.setAlpha(175);
 			imageIdString = "@drawable/" + tag + "_done";
@@ -149,8 +150,8 @@ public class MainActivity extends Activity {
 			finished.setText(not_finished);
 		} else {
 			Date finishedDate = new Date(finishedMilli);
-			String finishedString = DateFormat.getDateTimeInstance()
-					.format(finishedDate);
+			String finishedString = DateFormat.getDateTimeInstance().format(
+					finishedDate);
 			finished.setText(finishedString);
 		}
 	}
@@ -158,7 +159,7 @@ public class MainActivity extends Activity {
 	private void showStarted(int choicesCompleted) {
 		TextView started = (TextView) findViewById(R.id.started);
 		long startedMilli = prefs.getLongPref("started");
-		
+
 		if (choicesCompleted == 0) {
 			String not_started = getResources().getString(
 					R.string.not_started_text);
@@ -181,6 +182,18 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.howto:
+			Intent intent = new Intent(this, ShowAboutScreenActivity.class);
+			this.startActivity(intent);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}		
 	}
 
 }

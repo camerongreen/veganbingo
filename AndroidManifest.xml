@@ -30,6 +30,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.camerongreen.veganbingo.MainActivity" />
         </activity>
+        <activity
+            android:name="org.camerongreen.veganbingo.ShowAboutScreenActivity"
+            android:label="@string/title_activity_show_about_screen" >
+        </activity>
     </application>
 
 </manifest>
