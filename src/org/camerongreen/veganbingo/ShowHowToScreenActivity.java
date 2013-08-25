@@ -8,12 +8,12 @@ import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ShowAboutScreenActivity extends Activity {
+public class ShowHowToScreenActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_show_about_screen);
+		setContentView(R.layout.activity_show_howto_screen);
 		setupActionBar();
 	}
 
@@ -36,6 +36,5 @@ public class ShowAboutScreenActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
 
 }

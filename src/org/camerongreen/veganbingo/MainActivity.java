@@ -186,9 +186,14 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent intent = new Intent();
 		switch (item.getItemId()) {
+		case R.id.about:
+			intent.setClass(this, ShowAboutScreenActivity.class);
+			this.startActivity(intent);
+			return true;
 		case R.id.howto:
-			Intent intent = new Intent(this, ShowAboutScreenActivity.class);
+			intent.setClass(this, ShowHowToScreenActivity.class);
 			this.startActivity(intent);
 			return true;
 		default:

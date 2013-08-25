@@ -32,7 +32,13 @@
         </activity>
         <activity
             android:name="org.camerongreen.veganbingo.ShowAboutScreenActivity"
-            android:label="@string/title_activity_show_about_screen" >
+            android:label="@string/title_activity_show_about_screen"
+            android:parentActivityName="org.camerongreen.veganbingo.MainActivity" >
+        </activity>
+        <activity
+            android:name="org.camerongreen.veganbingo.ShowHowToScreenActivity"
+            android:label="@string/title_activity_show_howto_screen"
+            android:parentActivityName="org.camerongreen.veganbingo.MainActivity" >
         </activity>
     </application>
 
