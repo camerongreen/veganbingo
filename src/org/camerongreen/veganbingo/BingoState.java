@@ -42,7 +42,7 @@ public class BingoState {
 	}
 
 	public void doComplete() {
-		prefs.putLongPref("Finished", System.currentTimeMillis());
+		prefs.putLongPref("finished", System.currentTimeMillis());
 	}
 
 }
