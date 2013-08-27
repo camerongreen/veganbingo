@@ -52,10 +52,24 @@ public class MainActivity extends Activity {
 				int dimen = (int) (buttonSizeDp * d);
 				grid.addView(btn, dimen, dimen);
 			}
-
-			updateStats();
 		}
+		
+		updateStats();
+	}
 
+	protected void updateButtons() {
+		for (int i = 0; i < choices.length; i++) {
+			boolean clicked = prefs.getBooleanPref(choices[i]);
+			ImageButton button = (ImageButton) findViewById(i); 
+			setButtonImage(clicked, button);
+		}
+	}
+	
+	
+	public void onResume() {
+		super.onResume();
+		updateButtons();
+		updateStats();
 	}
 
 	private void updateStats() {
@@ -74,11 +88,13 @@ public class MainActivity extends Activity {
 	private ImageButton makeButton(boolean buttonClicked, int i, int j,
 			String tag) {
 		ImageButton btn = new ImageButton(this);
-
+		
 		int place = getPlace(i, j);
 
+		btn.setId(place);
+		
 		int stringId = getResources().getIdentifier(
-				"@string/" + tag + "_description", "id", PACKAGE_NAME);
+				"@string/" + tag + "_description", "yid", PACKAGE_NAME);
 		btn.setContentDescription(getResources().getString(stringId));
 
 		int colourId = getResources()

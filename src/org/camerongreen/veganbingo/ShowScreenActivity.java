@@ -45,6 +45,9 @@ public class ShowScreenActivity extends Activity {
 		String button_clicked_message = getString(button_clicked + "_description");
 		setTextView(R.id.clickedButtonMessage, button_clicked_message);
 
+		String rulesTextVal = getString(button_clicked + "_rules");
+		setTextView(R.id.rules, rulesTextVal);
+
 		String mainTextVal = getString(button_clicked + "_main");
 		setTextView(R.id.main_content, mainTextVal.replace("\\\n",
 				System.getProperty("line.separator")));

@@ -1,61 +1,95 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/mygrey"
-    tools:context=".ShowScreenActivity" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
     <RelativeLayout
-        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="85dp" >
+        android:layout_height="match_parent"
+        android:background="@color/mygrey"
+        tools:context=".ShowScreenActivity" >
 
-        <ImageView
-            android:id="@+id/main_icon"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="85dp" >
+
+            <ImageView
+                android:id="@+id/main_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/screen_heading" />
+
+            <TextView
+                android:id="@+id/clickedButtonMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@+id/main_icon"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/buttons"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/screen_heading" />
+            android:layout_below="@+id/header"
+            android:layout_marginLeft="8dp" >
 
-        <TextView
-            android:id="@+id/clickedButtonMessage"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/done_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:onClick="toggleDone" >
+            </Button>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:layout_toRightOf="@+id/main_icon"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_below="@+id/buttons"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/layout_bg" >
+
+            <TextView
+                android:id="@+id/rules_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/rules_heading"
+                android:textColor="@color/mydarkgrey"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rules"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rules_heading"
+                android:padding="8dp"
+                android:text="@string/rules_heading" />
+
+            <TextView
+                android:id="@+id/info_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rules"
+                android:padding="8dp"
+                android:text="@string/info_heading"
+                android:textColor="@color/mydarkgrey"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/main_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/info_heading"
+                android:maxLines="50"
+                android:padding="8dp" />
+        </RelativeLayout>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/header"
-        android:layout_marginLeft="8dp" >
-
-        <Button
-            android:id="@+id/done_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:onClick="toggleDone" >
-        </Button>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/buttons"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/layout_bg" >
-
-        <TextView
-            android:id="@+id/main_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="50"
-            android:padding="8dp" />
-    </RelativeLayout>
-
-</RelativeLayout>
+</ScrollView>
