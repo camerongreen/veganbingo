@@ -1,7 +1,9 @@
 package org.camerongreen.veganbingo;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,6 +13,8 @@ import android.support.v7.widget.GridLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,6 +27,7 @@ public class MainActivity extends Activity {
 			"eat", "notmuch", "what", "cant", "aspirational", "hitler" };
 	public final static String[] colours = { "mygreen", "myblue", "mypink",
 			"myyellow", "mypink", "myyellow", "mygreen", "myblue" };
+	private List<ImageButton> buttons = new ArrayList<ImageButton>();
 	private MyPrefs prefs = null;
 	private int gridSize = 4;
 	private int buttonSizeDp = 80;
@@ -51,21 +56,21 @@ public class MainActivity extends Activity {
 				float d = getResources().getDisplayMetrics().density;
 				int dimen = (int) (buttonSizeDp * d);
 				grid.addView(btn, dimen, dimen);
+				buttons.add(btn);
 			}
 		}
-		
+
 		updateStats();
 	}
 
 	protected void updateButtons() {
 		for (int i = 0; i < choices.length; i++) {
 			boolean clicked = prefs.getBooleanPref(choices[i]);
-			ImageButton button = (ImageButton) findViewById(i); 
+			ImageButton button = (ImageButton) findViewById(i);
 			setButtonImage(clicked, button);
 		}
 	}
-	
-	
+
 	public void onResume() {
 		super.onResume();
 		updateButtons();
@@ -88,11 +93,11 @@ public class MainActivity extends Activity {
 	private ImageButton makeButton(boolean buttonClicked, int i, int j,
 			String tag) {
 		ImageButton btn = new ImageButton(this);
-		
+
 		int place = getPlace(i, j);
 
 		btn.setId(place);
-		
+
 		int stringId = getResources().getIdentifier(
 				"@string/" + tag + "_description", "yid", PACKAGE_NAME);
 		btn.setContentDescription(getResources().getString(stringId));
@@ -169,6 +174,21 @@ public class MainActivity extends Activity {
 			String finishedString = DateFormat.getDateTimeInstance().format(
 					finishedDate);
 			finished.setText(finishedString);
+			showFinish();
+		}
+	}
+
+	private void showFinish() {
+		setHeaderText(getResources().getString(
+				R.string.app_name) + "!!!");
+		
+		throbHeaderText();
+		
+		Animation min = AnimationUtils.loadAnimation(this, R.animator.fini);
+
+		for (int i = 0; i < choices.length; i++) {
+			ImageButton button = (ImageButton) findViewById(i);
+			button.startAnimation(min);
 		}
 	}
 
@@ -189,8 +209,28 @@ public class MainActivity extends Activity {
 	}
 
 	private void showScore(int choicesCompleted) {
-		TextView score = (TextView) findViewById(R.id.score);
-		score.setText(choicesCompleted + "/" + choices.length);
+		String scoreText = getString("score_text");
+		
+		setHeaderText(scoreText + ": " + choicesCompleted + "/" + choices.length);
+	}
+
+	private String getString(String resourceName) {
+		int stringId = getResources().getIdentifier(
+				"@string/" + resourceName, "id", getPackageName());
+		String message = getResources().getString(stringId);
+		return message;
+	}
+
+
+	private void setHeaderText(String text) {
+		TextView header = (TextView) findViewById(R.id.main_text);
+		header.setText(text);
+	}
+
+	private void throbHeaderText() {
+		TextView header = (TextView) findViewById(R.id.main_text);
+		Animation throb = AnimationUtils.loadAnimation(this, R.animator.throb);
+		header.startAnimation(throb);
 	}
 
 	@Override
@@ -214,7 +254,7 @@ public class MainActivity extends Activity {
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
-		}		
+		}
 	}
 
 }
