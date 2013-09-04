@@ -20,9 +20,9 @@
     <string name="howto_content">If you know how traditional Bingo works, you are well on the way to understanding Vegan Bingo!  If you don\'t, well worry not, it is simple.
         \nYou start with a board of icons, each one representing common things people say to vegans.
         \nClick on each of the icons to see what they represent and some info.
-        \nWhen someone says one of them to you, you then say Vegan Bingo! and you click on the icon which matches it and check it off.  A red X will now appear on the screen for that item showing it as checked off.
-        \nYour aim is to check as many off as possible, one you have done them all you will have achieved Vegan Bingo! 
-        \nVegan bingo is a fun game for vegans, not to make fun of non vegans, remember veganism was new to most of us at one point and we might have asked similar questions.</string>
+        \nWhen someone says one of them to you, you then say Vegan Bingo! and you go and check it off. A red X will now appear on the screen for that item showing it as checked off.
+        \nYour aim is to check as many off as possible; one you have done them all you will have achieved Vegan Bingo! 
+        \nVegan bingo is a fun game for vegans, not to make fun of non-vegans; remember veganism was new to most of us at one point and we might have asked similar questions.</string>
     <string name="started_text">Started</string>
     <string name="finished_text">Completed</string>
     <string name="not_started_text">N/A</string>
@@ -41,26 +41,22 @@
         \nBacon, steak, chicken, they are all animals killed for people, the least people who eat them can do is have some respect for them.</string>
     <string name="hitler_description">Hitler was a vegetarian</string>
     <string name="hitler_rules">Pol Pot, Charles Manson, anyone who reflects poorly on our species</string>
-    <string name="hitler_main">Evil people who might have eaten vegetables at one point in their lives are often trudged out as examples of&#8230;well it is hard to say.  Really what it is about is the person trying to maintain their own sense of moral righteousness by slanderously associating you with evil people from history.
-        \nThis is of course motivated by the fact that they know they are participating in something immoral and rather than taking any action to stop this, they use anything they can drag other people down.  Presumably to their level.
-        \nHitler, Pol Pot, neither were ethical vegetarians, they did so for short periods due to health problems and Hitler certainly would rather be eating his favourite sausages.
+    <string name="hitler_main">Evil people who might have eaten vegetables at one point in their lives are often trudged out as examples of&#8230;well it is hard to say. Really what it is about is the person trying to maintain their own sense of moral righteousness by slanderously associating you with evil people from history.
+        \nThis is of course motivated by the fact that they know they are participating in something immoral, and rather than taking any action to stop this, are using anything they can grab on to to drag other people down to their level.\nHitler, Pol Pot, neither were ethical vegetarians, they did so for short periods due to health problems and Hitler certainly would rather be eating his favourite sausages.
         \nThe Nazis did enact some laws against animal cruelty, they also had the Winter Relief programme helping the poor during the cold months, so they were evil but not every single thing they did necessarily was.
-        \nUltimately veganism is about compassion for animals, humans are animals so we care about them too.</string>
+        \nUltimately veganism is about compassion for animals; humans are animals so we care about them too.</string>
     <string name="protein_description">Where do you get your protein?</string>
-    <string name="protein_rules">Iron. B12 is not because it is a good question&#8230;you should be supplementing B12!</string>
-    <string name="protein_main">Where did people get their obsession with asking about protein?  Meat and dairy industry propaganda which reaches far more people than any unbiased nutritional advice.
-        \nThere has never been any study which has shown protein deficiency in people following a plant based diet.  Protein deficiency is virtually unknown in any population who eats enough calories, regardless of what their diet is.
-        \nHow much protein do you need? You weight in kilograms times 0.8 to 1.8 depending on how much weight bearing or endurance exercise you do.
-        \nAnd yes, we get protein from nuts, seeds, tofu, tempeh, seitan, beans, legumes, oats, bread, soy milk, chickpeas and many other foods such as vegetables, which all contain protein.
-        \nFor iron soybeans, lentils, spinach, tofu, chickpeas, tempeh, beans, tahini, cashews, peas, the list goes on.  Cast iron cookware adds iron to food, and eating a source of vitamin C with iron rich food helps with absorption.</string>
+    <string name="protein_rules">Iron, B12 is not, because it is a good question&#8230;you should be taking care to get enough in your diet, and a B12 supplement is essential!</string>
+    <string name="protein_main">Where did people get their obsession with asking about protein? Meat and dairy industry propaganda which reaches far more people than any unbiased nutritional advice.
+        \nThere has never been any study which has shown protein deficiency in people following a plant based diet.  Protein deficiency is unknown in any population who eats enough calories, regardless of what their diet is. There may be some edge cases, but vegetarianism and veganism are not one of them.
+        \nHow much protein do you need? You weight in kilograms times 0.8 to 1.8 depending on how much weight bearing or endurance exercise you do.</string>
     <string name="cheese_description">I could never give up cheese</string>
-    <string name="cheese_rules">You are not going to need any other acceptable answers because you will be hearing this one</string>
+    <string name="cheese_rules">You are not going to need any other answers because you will be hearing this one repeatedly.</string>
     <string name="cheese_main">Of course the second part of this statement might be "No matter how much cruelty is involved".
-        \nHopefully this is simply untrue, that instead people can be motivated by rational and ethical concerns.  If people understood that it wasn\'t a particularly healthy thing to eat, contributes to the veal trade in young calves, is environmentally polluting and unhealthy for the cows themselves, hopefully they could find the motivation to remove just one of the hundreds or thousands of ingredients in their diet.
-        \nReplacing cheese is often about fats, so nuts, pestos, foods stored in oil, are good replacements.  There are also plenty of different vegan cheeses, give them a try to see if you like any, personally I find using them sparingly is the way to go, but I have friends who love them so see how you go.</string>
+        \nHopefully this is simply untrue, that instead people can be motivated by rational and ethical concerns.  If people understood that it wasn't a particularly healthy thing to eat, contributes to the veal trade in young calves, is environmentally polluting and unhealthy for the cows themselves, hopefully they could find the motivation to replace just one of the hundreds or thousands of ingredients in their diet.</string>
     <string name="cow_description">What would happen to all the cows?</string>
-    <string name="cow_rules">Cows like to be milked! It shows a similar complete misunderstanding of how dairy cows are bred and for what purpose</string>
-    <string name="cow_main">Cows are not allowed to breed naturally, the idea that they are has more to do with romantic visions of the countryside than intensive industrial farming.
+    <string name="cow_rules">Cows like to be milked! It shows a similar complete misunderstanding of how dairy cows are bred and for what purpose.</string>
+    <string name="cow_main">Cows are not allowed to breed naturally, the idea that they are has more to do with romanatic visions of the countryside than intensive industrial farming.
         \nTheir breeding is strictly controlled by the farmers and companies engineering their bodies for human purposes, such as growing oversized udders which impair their mobility. The population of livestock rises and falls quickly in relation to human demand.
         \nSadly for livestock however it is unlikely that a change will happen overnight, it will probably be gradual so carnists can stop losing sleep over the terrible notion of these creatures we have brought into being living out their natural lifespans.</string>
     <string name="plants_description">Don\'t plants have feelings?</string>
