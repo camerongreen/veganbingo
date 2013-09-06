@@ -210,7 +210,6 @@ public class MainActivity extends Activity {
 
 	private void showScore(int choicesCompleted) {
 		String scoreText = getString("score_text");
-		
 		setHeaderText(scoreText + ": " + choicesCompleted + "/" + choices.length);
 	}
 

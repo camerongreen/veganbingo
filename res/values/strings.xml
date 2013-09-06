@@ -24,7 +24,8 @@
         \nYour aim is to check as many off as possible; one you have done them all you will have achieved Vegan Bingo! 
         \nVegan bingo is a fun game for vegans, not to make fun of non-vegans; remember veganism was new to most of us at one point and we might have asked similar questions.</string>
     <string name="restart">Restart</string>
-    <string name="restart_text">Clear all values and start again?</string>
+    <string name="restart_text">Please note this will clear all values and start again.
+        \nAre you sure?</string>
     <string name="started_text">Started</string>
     <string name="finished_text">Completed</string>
     <string name="not_started_text">N/A</string>

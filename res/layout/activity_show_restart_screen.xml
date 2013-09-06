@@ -30,6 +30,7 @@
             android:text="@string/restart"
             android:onClick="restart" >
         </Button>
+        
     </RelativeLayout>
 
 </ScrollView>
