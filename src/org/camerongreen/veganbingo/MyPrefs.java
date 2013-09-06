@@ -50,6 +50,14 @@ public class MyPrefs {
 		return count;
 	}
 
+	public void clearPrefs(String[] choices) {
+		for (int i = 0; i < choices.length; i++) {
+			remove(choices[i]);
+		}
+		remove("started");
+		remove("finished");
+	}
+
 	private SharedPreferences.Editor getEditor() {
 		if (editor == null) {
 			editor = getSharedPrefs().edit();

@@ -44,6 +44,12 @@
             android:parentActivityName="org.camerongreen.veganbingo.MainActivity"
             android:screenOrientation="portrait" >
         </activity>
-    </application>
+        <activity
+            android:name="org.camerongreen.veganbingo.ShowRestartScreenActivity"
+            android:label="@string/restart"
+            android:parentActivityName="org.camerongreen.veganbingo.MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        </application>
 
 </manifest>

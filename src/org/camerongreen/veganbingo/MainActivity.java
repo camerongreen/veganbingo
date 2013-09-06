@@ -252,6 +252,10 @@ public class MainActivity extends Activity {
 			intent.setClass(this, ShowHowToScreenActivity.class);
 			this.startActivity(intent);
 			return true;
+		case R.id.restart:
+			intent.setClass(this, ShowRestartScreenActivity.class);
+			this.startActivity(intent);
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
