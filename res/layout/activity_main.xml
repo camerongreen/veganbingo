@@ -2,15 +2,15 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/mydarkgrey"
-    android:gravity="center" 
-    android:paddingTop="0dp">
+    android:gravity="center"
+    android:paddingTop="0dp" >
 
     <RelativeLayout
         android:id="@+id/score_container"
         android:layout_width="match_parent"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="16dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="0dp"
         android:gravity="center" >
 
         <TextView
@@ -24,9 +24,11 @@
     <android.support.v7.widget.GridLayout
         xmlns:grid="http://schemas.android.com/apk/res/org.camerongreen.veganbingo"
         android:id="@+id/gridlayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/score_container"
+        android:layout_centerInParent="true"
+        android:gravity="center"
         grid:columnCount="4"
         grid:orientation="horizontal" >
     </android.support.v7.widget.GridLayout>
