@@ -7,9 +7,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ShowRestartScreenActivity extends Activity {
 	private MyPrefs prefs = null;
@@ -25,8 +27,16 @@ public class ShowRestartScreenActivity extends Activity {
 		int count = prefs.countPrefs(MainActivity.choices);
 		Button button = (Button) findViewById(R.id.restart_button);
 		setRestartButtonDisplay(count > 0, button);
+		
+		convertTextToHtml(R.id.restart_text);
 	}
 	
+	private void convertTextToHtml(int viewId) {
+		TextView textView = (TextView) findViewById(viewId);
+		String text = textView.getText().toString();
+		textView.setText(Html.fromHtml(text));
+	}
+
 	private void setRestartButtonDisplay(boolean enabled, Button button) {
 		int icon = 0;
 		icon = android.R.drawable.ic_delete;

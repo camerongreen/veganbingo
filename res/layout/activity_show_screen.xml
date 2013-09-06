@@ -66,6 +66,7 @@
 
             <TextView
                 android:id="@+id/rules"
+                style="@style/StandardFont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rules_heading"
@@ -84,6 +85,7 @@
 
             <TextView
                 android:id="@+id/main_content"
+                style="@style/StandardFont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/info_heading"

@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:maxLines="50"
             android:padding="8dp"
+            style="@style/StandardFont"
             android:text="@string/restart_text" />
 
         <Button

@@ -1,12 +1,13 @@
 package org.camerongreen.veganbingo;
 
-import android.os.Build;
-import android.os.Bundle;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.view.Menu;
+import android.text.Html;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class ShowAboutScreenActivity extends Activity {
 
@@ -15,8 +16,16 @@ public class ShowAboutScreenActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_about_screen);
 		setupActionBar();
+		
+		convertTextToHtml(R.id.about_content);
 	}
-
+	
+	private void convertTextToHtml(int viewId) {
+		TextView textView = (TextView) findViewById(viewId);
+		String text = textView.getText().toString();
+		textView.setText(Html.fromHtml(text));
+	}
+	
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.
 	 */

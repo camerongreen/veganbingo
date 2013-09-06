@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -16,14 +17,14 @@ import android.widget.TextView;
 
 public class ShowScreenActivity extends Activity {
 	private MyPrefs prefs = null; // needs to work not only on oncreate
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_screen);
 		// Show the Up button in the action bar.
 		setupActionBar();
-		
+
 		prefs = new MyPrefs(getSharedPreferences(MainActivity.PACKAGE_NAME,
 				Context.MODE_PRIVATE));
 
@@ -41,17 +42,20 @@ public class ShowScreenActivity extends Activity {
 		// which icon should we show, done or not done
 		boolean pref_value = prefs.getBooleanPref(button_clicked);
 		setDoneButtonDisplay(pref_value, doneButton);
-		
-		String button_clicked_message = getString(button_clicked + "_description");
+
+		String button_clicked_message = getString(button_clicked
+				+ "_description");
 		setTextView(R.id.clickedButtonMessage, button_clicked_message);
 
 		String rulesTextVal = getString(button_clicked + "_rules");
 		setTextView(R.id.rules, rulesTextVal);
 
 		String mainTextVal = getString(button_clicked + "_main");
-		setTextView(R.id.main_content, mainTextVal.replace("\\\n",
-				System.getProperty("line.separator")));
-		
+		setTextView(
+				R.id.main_content,
+				mainTextVal.replace("\\\n",
+						System.getProperty("line.separator")));
+
 	}
 
 	private void setImageView(int viewId, String resourceName) {
@@ -62,13 +66,13 @@ public class ShowScreenActivity extends Activity {
 	}
 
 	private void setTextView(int id, String text) {
-		TextView tv = (TextView) findViewById(id);
-		tv.setText(text);
+		TextView textView = (TextView) findViewById(id);
+		textView.setText(Html.fromHtml(text));
 	}
 
 	private String getString(String resourceName) {
-		int stringId = getResources().getIdentifier(
-				"@string/" + resourceName, "id", getPackageName());
+		int stringId = getResources().getIdentifier("@string/" + resourceName,
+				"id", getPackageName());
 		String message = getResources().getString(stringId);
 		return message;
 	}
@@ -97,7 +101,6 @@ public class ShowScreenActivity extends Activity {
 		boolean done = bingo.toggleDone(tag);
 		setDoneButtonDisplay(done, button);
 	}
-
 
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.

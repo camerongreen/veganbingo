@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.support.v4.app.NavUtils;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class ShowHowToScreenActivity extends Activity {
 
@@ -15,6 +17,14 @@ public class ShowHowToScreenActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_howto_screen);
 		setupActionBar();
+		
+		convertTextToHtml(R.id.howto_content);
+	}
+
+	private void convertTextToHtml(int viewId) {
+		TextView textView = (TextView) findViewById(viewId);
+		String text = textView.getText().toString();
+		textView.setText(Html.fromHtml(text));
 	}
 
 	/**
