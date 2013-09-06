@@ -1,19 +1,14 @@
 package org.camerongreen.veganbingo;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-public class ShowRestartScreenActivity extends Activity {
+public class ShowRestartScreenActivity extends BingoActivityAbstract {
 	private MyPrefs prefs = null;
 
 	@Override
@@ -31,12 +26,6 @@ public class ShowRestartScreenActivity extends Activity {
 		convertTextToHtml(R.id.restart_text);
 	}
 	
-	private void convertTextToHtml(int viewId) {
-		TextView textView = (TextView) findViewById(viewId);
-		String text = textView.getText().toString();
-		textView.setText(Html.fromHtml(text));
-	}
-
 	private void setRestartButtonDisplay(boolean enabled, Button button) {
 		int icon = 0;
 		icon = android.R.drawable.ic_delete;
@@ -53,26 +42,6 @@ public class ShowRestartScreenActivity extends Activity {
 		setRestartButtonDisplay(false, button);
 	}
 
-
-	/**
-	 * Set up the {@link android.app.ActionBar}, if the API is available.
-	 */
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	private void setupActionBar() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			getActionBar().setDisplayHomeAsUpEnabled(true);
-		}
-	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			NavUtils.navigateUpFromSameTask(this);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 
 
 }
