@@ -21,6 +21,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+/**
+ * Vegan bingo main class.  My first android app and first bit of Java
+ * in about five years so if you have any code based 
+ * suggestions or improvements send away :)
+ * 
+ * @author Cameron Green <i@camerongreen.org>
+ */
 public class MainActivity extends Activity {
 	public static String PACKAGE_NAME;
 
@@ -54,7 +61,8 @@ public class MainActivity extends Activity {
 				Context.MODE_PRIVATE));
 
 		GridLayout grid = (GridLayout) findViewById(R.id.gridlayout);
-
+		GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+		
 		for (int i = 0; i < gridSize; i++) {
 			for (int j = 0; j < gridSize; j++) {
 				int place = getPlace(i, j);
@@ -63,6 +71,12 @@ public class MainActivity extends Activity {
 				boolean buttonClicked = prefs.getBooleanPref(tag);
 
 				ImageButton btn = makeButton(buttonClicked, i, j, tag);
+
+				// place the button in the grid, kinda weird way to do it
+				// don't see why the button should care where it is
+				params.rowSpec = GridLayout.spec(i);
+				params.columnSpec = GridLayout.spec(j);
+				btn.setLayoutParams(params);
 
 				float d = getResources().getDisplayMetrics().density;
 				int dimen = (int) (buttonSizeDp * d);
@@ -75,6 +89,14 @@ public class MainActivity extends Activity {
 		updateStats();
 	}
 
+	/**
+	 * Call this on each tick, check the state of started and finished
+	 * and display the timer accordingly.
+	 * 
+	 * A little inefficient to keep calling if the user is either not started
+	 * or has finished, but this whole handler thing is a little sketchy to me
+	 * so until I read a book or something, will leave it as is, ie working well
+	 */
 	protected void updateTimerText() {
 		long finished = prefs.getLongPref("finished");
 		long endTime;
@@ -98,6 +120,9 @@ public class MainActivity extends Activity {
 		timerText.setText(retime);
 	}
 
+	/**
+	 * This just initialises the timer object
+	 */
 	protected void startTimer() {
 		timerText = (TextView) findViewById(R.id.timer);
 	}
@@ -123,6 +148,10 @@ public class MainActivity extends Activity {
 		background.start();
 	}
 
+	/**
+	 * Cycles through the buttons, synchronizing their state
+	 * with that stored in the users preferences.  
+	 */
 	protected void updateButtons() {
 		for (int i = 0; i < choices.length; i++) {
 			boolean clicked = prefs.getBooleanPref(choices[i]);
@@ -131,12 +160,18 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	/**
+	 * Androidy thing...sure this will get me in trouble at some point
+	 */
 	public void onResume() {
 		super.onResume();
 		updateButtons();
 		updateStats();
 	}
 
+	/**
+	 * Update all the text bits based on the current preferences
+	 */
 	private void updateStats() {
 		int choicesCompleted = prefs.countPrefs(choices);
 
@@ -145,17 +180,37 @@ public class MainActivity extends Activity {
 		showFinished(choicesCompleted);
 	}
 
-	private int getPlace(int i, int j) {
-		int place = (i * gridSize) + j;
+	/**
+	 * Simple function to turn 2d x and y into place in array
+	 * 
+	 * @param row
+	 * @param column
+	 * @return
+	 */
+	private int getPlace(int row, int column) {
+		int place = (row * gridSize) + column;
 		return place;
 	}
 
-	private ImageButton makeButton(boolean buttonClicked, int i, int j,
+	/**
+	 * Makes one of the image buttons, displaying it in the grid 
+	 * and using the clicked state to decide on image to show
+	 * 
+	 * @param buttonClicked
+	 * @param row
+	 * @param column
+	 * @param tag
+	 * @return
+	 */
+	private ImageButton makeButton(boolean buttonClicked, int row, int column,
 			String tag) {
+		int place = getPlace(row, column);
+
 		ImageButton btn = new ImageButton(this);
-
-		int place = getPlace(i, j);
-
+		btn.setTag(tag);
+		// all a bit mysterious ids in Android, the system assigns them automatically
+		// but apparently it won't override any I set here...so just set it to place which 
+		// should be unique and unchanging
 		btn.setId(place);
 
 		int stringId = getResources().getIdentifier(
@@ -167,14 +222,8 @@ public class MainActivity extends Activity {
 						"id", PACKAGE_NAME);
 		btn.setBackgroundResource(colourId);
 
-		btn.setTag(tag);
-
 		setButtonImage(buttonClicked, btn);
 
-		GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-		params.rowSpec = GridLayout.spec(i);
-		params.columnSpec = GridLayout.spec(j);
-		btn.setLayoutParams(params);
 		btn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -204,6 +253,13 @@ public class MainActivity extends Activity {
 		return btn;
 	}
 
+	/**
+	 * Either set the buttons image to done or the default image
+	 * depending on whether the user has marked as done
+	 * 
+	 * @param buttonDone
+	 * @param btn
+	 */
 	private void setButtonImage(boolean buttonDone, ImageButton btn) {
 		String tag = (String) btn.getTag();
 		String imageIdString;
@@ -221,6 +277,11 @@ public class MainActivity extends Activity {
 		btn.setImageResource(imageId);
 	}
 
+	/**
+	 * Display the finished text and time if the user has finished
+	 * 
+	 * @param choicesCompleted
+	 */
 	private void showFinished(int choicesCompleted) {
 		TextView finished = (TextView) findViewById(R.id.finished);
 		TextView finishedLabel = (TextView) findViewById(R.id.finished_text);
@@ -241,6 +302,10 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	/**
+	 * Do something lame when the user has finished.  Actually I wanted to do
+	 * something cool but did what I could
+	 */
 	private void showFinish() {
 		setHeaderText(getResources().getString(R.string.app_name) + "!!!");
 
@@ -254,6 +319,11 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	/**
+	 * Display the started text and time
+	 * 
+	 * @param choicesCompleted
+	 */
 	private void showStarted(int choicesCompleted) {
 		TextView started = (TextView) findViewById(R.id.started);
 		long startedMilli = prefs.getLongPref("started");
@@ -270,12 +340,22 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	/**
+	 * Show the users current "score"
+	 * 
+	 * @param choicesCompleted
+	 */
 	private void showScore(int choicesCompleted) {
 		String scoreText = getString("score_text");
 		setHeaderText(scoreText + ": " + choicesCompleted + "/"
 				+ choices.length);
 	}
 
+	/**
+	 * Generic helper to get string by name
+	 * 
+	 * @param resourceName
+	 */
 	private String getString(String resourceName) {
 		int stringId = getResources().getIdentifier("@string/" + resourceName,
 				"id", getPackageName());
@@ -283,11 +363,19 @@ public class MainActivity extends Activity {
 		return message;
 	}
 
+	/**
+	 * Method to set the header text, used for score and finished anims
+	 * 
+	 * @param text
+	 */
 	private void setHeaderText(String text) {
 		TextView header = (TextView) findViewById(R.id.main_text);
 		header.setText(text);
 	}
 
+	/**
+	 * Not as rude as it sounds
+	 */
 	private void throbHeaderText() {
 		TextView header = (TextView) findViewById(R.id.main_text);
 		Animation throb = AnimationUtils.loadAnimation(this, R.animator.throb);
@@ -301,6 +389,10 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	/**
+	 * Do the menu stuff, passing off to different screens and
+	 * activities
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Intent intent = new Intent();

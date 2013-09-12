@@ -2,6 +2,13 @@ package org.camerongreen.veganbingo;
 
 import android.os.Bundle;
 
+/**
+ * Hmm not much codewise I could say usefully, but whilst you are here reading this
+ * here's some advice a wise person once gave me, never eat anything bigger than your
+ * head
+ * 
+ * @author Cameron Green <i@camerongreen.org>
+ */
 public class ShowHowToScreenActivity extends BingoActivityAbstract {
 
 	@Override

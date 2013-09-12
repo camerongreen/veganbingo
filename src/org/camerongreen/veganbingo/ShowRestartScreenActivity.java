@@ -8,6 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * Allow the user to restart, which effectly means just removing all of their
+ * preferences
+ * 
+ * @author Cameron Green <i@camerongreen.org>
+ */
 public class ShowRestartScreenActivity extends BingoActivityAbstract {
 	private MyPrefs prefs = null;
 

@@ -10,6 +10,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * This class shows the pages/screens for each of the individual activities
+ * and gives the user a button which they can set their preference on
+ * 
+ * @author Cameron Green <i@camerongreen.org>
+ */
 public class ShowScreenActivity extends BingoActivityAbstract {
 	private MyPrefs prefs = null; // needs to work not only on oncreate
 
@@ -53,6 +59,12 @@ public class ShowScreenActivity extends BingoActivityAbstract {
 
 	}
 
+	/**
+	 * helper method to make setting image view easier
+	 * 
+	 * @param viewId
+	 * @param resourceName
+	 */
 	private void setImageView(int viewId, String resourceName) {
 		int imgId = getResources().getIdentifier("@drawable/" + resourceName,
 				"id", getPackageName());
@@ -60,11 +72,23 @@ public class ShowScreenActivity extends BingoActivityAbstract {
 		imageView.setImageResource(imgId);
 	}
 
+	/**
+	 * helper method to make setting text view easier
+	 * 
+	 * @param viewId
+	 * @param text
+	 */
 	private void setTextView(int id, String text) {
 		TextView textView = (TextView) findViewById(id);
 		textView.setText(Html.fromHtml(text));
 	}
 
+	/**
+	 * Helper method to get a string
+	 * 
+	 * @param resourceName
+	 * @return
+	 */
 	private String getString(String resourceName) {
 		int stringId = getResources().getIdentifier("@string/" + resourceName,
 				"id", getPackageName());
@@ -72,6 +96,13 @@ public class ShowScreenActivity extends BingoActivityAbstract {
 		return message;
 	}
 
+	/**
+	 * Display the button differently depending on whether the user has 
+	 * completed the task or otherwise
+	 * 
+	 * @param done
+	 * @param doneButton
+	 */
 	private void setDoneButtonDisplay(boolean done, Button doneButton) {
 		int icon = 0;
 		if (done) {
@@ -88,6 +119,12 @@ public class ShowScreenActivity extends BingoActivityAbstract {
 		doneButton.setCompoundDrawables(image, null, null, null);
 	}
 
+	/**
+	 * Set the users preference to done if not done, or 
+	 * not done if done :)
+	 * 
+	 * @param view
+	 */
 	public void toggleDone(View view) {
 		Button button = (Button) view;
 		String tag = (String) button.getTag();

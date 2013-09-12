@@ -2,6 +2,12 @@ package org.camerongreen.veganbingo;
 
 import android.os.Bundle;
 
+/**
+ * I mainly commented this to test out the author template stuff below
+ * was working in Eclipse
+ * 
+ * @author Cameron Green <i@camerongreen.org>
+ */
 public class ShowAboutScreenActivity extends BingoActivityAbstract {
 
 	@Override
