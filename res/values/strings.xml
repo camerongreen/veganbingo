@@ -24,6 +24,7 @@
     <string name="restart">Restart</string>
     <string name="restart_text"><![CDATA[<p>Please note this will clear all values and start again.
         <p>Are you sure?]]></string>
+    <string name="timer_text">Time</string>
     <string name="started_text">Started</string>
     <string name="finished_text">Completed</string>
     <string name="not_started_text">N/A</string>
@@ -53,7 +54,7 @@
         <p>How much protein do you need? You weight in kilograms times 0.8 to 1.8 depending on how much weight bearing or endurance exercise you do.</p>]]></string>
     <string name="cheese_description">I could never give up cheese</string>
     <string name="cheese_rules">You are not going to need any other answers because you will be hearing this one repeatedly.</string>
-    <string name="cheese_main"><![CDATA[<p>Of course the second part of this statement might be "No matter how much cruelty is involved".</p>
+    <string name="cheese_main"><![CDATA[<p>Of course the second part of this statement might be - No matter how much cruelty is involved.</p>
         <p>Hopefully this is simply untrue, that instead people can be motivated by rational and ethical concerns.  If people understood that it wasn\'t a particularly healthy thing to eat, contributes to the veal trade in young calves, is environmentally polluting and unhealthy for the cows themselves, hopefully they could find the motivation to replace just one of the hundreds or thousands of ingredients in their diet.</p>]]></string>
     <string name="cow_description">What would happen to all the cows?</string>
     <string name="cow_rules">Cows like to be milked! It shows a similar complete misunderstanding of how dairy cows are bred and for what purpose.</string>

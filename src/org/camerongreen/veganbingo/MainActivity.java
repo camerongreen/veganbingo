@@ -9,7 +9,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.GridLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +34,14 @@ public class MainActivity extends Activity {
 	private MyPrefs prefs = null;
 	private int gridSize = 4;
 	private int buttonSizeDp = 80;
+	private TextView timerText;
+
+	private Handler handler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			updateTimerText();
+		}
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +71,56 @@ public class MainActivity extends Activity {
 			}
 		}
 
+		startTimer();
 		updateStats();
+	}
+
+	protected void updateTimerText() {
+		long finished = prefs.getLongPref("finished");
+		long endTime;
+
+		if (finished == 0l) {
+			endTime = System.currentTimeMillis();
+		} else {
+			endTime = finished;
+		}
+
+		long started = prefs.getLongPref("started");
+		long elapsed_seconds = started > 0l ? (endTime - started) / 1000 : 0;
+		long hours = elapsed_seconds / (60 * 60);
+		elapsed_seconds = elapsed_seconds % (60 * 60);
+		long minutes = elapsed_seconds / 60;
+		elapsed_seconds = elapsed_seconds % 60;
+
+		String retime = String.format("%02d:%02d:%02d", hours, minutes,
+				elapsed_seconds);
+
+		timerText.setText(retime);
+	}
+
+	protected void startTimer() {
+		timerText = (TextView) findViewById(R.id.timer);
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+
+		Thread background = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					while (true) {
+						Thread.sleep(1000);
+						handler.sendMessage(handler.obtainMessage());
+					}
+				} catch (Exception e) {
+					Log.v("Error", e.toString());
+				}
+			}
+		});
+
+		background.start();
 	}
 
 	protected void updateButtons() {
@@ -163,14 +223,17 @@ public class MainActivity extends Activity {
 
 	private void showFinished(int choicesCompleted) {
 		TextView finished = (TextView) findViewById(R.id.finished);
-
+		TextView finishedLabel = (TextView) findViewById(R.id.finished_text);
+		
 		long finishedMilli = prefs.getLongPref("finished");
+		
 		if (choicesCompleted != choices.length) {
-			String not_finished = getResources().getString(
-					R.string.not_started_text);
-			finished.setText(not_finished);
+			finishedLabel.setVisibility(View.GONE);
+			finished.setVisibility(View.GONE);
 		} else {
 			Date finishedDate = new Date(finishedMilli);
+			finishedLabel.setVisibility(View.VISIBLE);
+			finished.setVisibility(View.VISIBLE);
 			String finishedString = DateFormat.getDateTimeInstance().format(
 					finishedDate);
 			finished.setText(finishedString);
@@ -179,11 +242,10 @@ public class MainActivity extends Activity {
 	}
 
 	private void showFinish() {
-		setHeaderText(getResources().getString(
-				R.string.app_name) + "!!!");
-		
+		setHeaderText(getResources().getString(R.string.app_name) + "!!!");
+
 		throbHeaderText();
-		
+
 		Animation min = AnimationUtils.loadAnimation(this, R.animator.fini);
 
 		for (int i = 0; i < choices.length; i++) {
@@ -210,16 +272,16 @@ public class MainActivity extends Activity {
 
 	private void showScore(int choicesCompleted) {
 		String scoreText = getString("score_text");
-		setHeaderText(scoreText + ": " + choicesCompleted + "/" + choices.length);
+		setHeaderText(scoreText + ": " + choicesCompleted + "/"
+				+ choices.length);
 	}
 
 	private String getString(String resourceName) {
-		int stringId = getResources().getIdentifier(
-				"@string/" + resourceName, "id", getPackageName());
+		int stringId = getResources().getIdentifier("@string/" + resourceName,
+				"id", getPackageName());
 		String message = getResources().getString(stringId);
 		return message;
 	}
-
 
 	private void setHeaderText(String text) {
 		TextView header = (TextView) findViewById(R.id.main_text);

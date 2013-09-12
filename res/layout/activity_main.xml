@@ -41,9 +41,28 @@
         android:gravity="center" >
 
         <TextView
+            android:id="@+id/timer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="@string/timer_text"
+            android:textColor="@color/mywhite"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/timer_text"
+            android:textColor="@color/mywhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/started_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/timer_text"
             android:layout_marginRight="8dp"
             android:text="@string/started_text"
             android:textColor="@color/mywhite"
@@ -53,6 +72,7 @@
             android:id="@+id/started"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/timer"
             android:layout_toRightOf="@+id/started_text"
             android:textColor="@color/mywhite"
             android:textSize="18sp"
