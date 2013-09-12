@@ -15,11 +15,11 @@
         <p>This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/.</p>]]></string>
     <string name="howto_play">How to play</string>
     <string name="title_activity_show_howto_screen">How to play</string>
-    <string name="howto_content"><![CDATA[<p>If you know how traditional Bingo works, you are well on the way to understanding Vegan Bingo!  If you don\'t, well worry not, it is simple.</p>
+    <string name="howto_content"><![CDATA[<p>If you know how traditional Bingo works, you are well on the way to understanding <b>Vegan Bingo</a>!  If you don\'t, well worry not, it is simple.</p>
         <p>You start with a board of icons, each one representing common things people say to vegans.</p>
-        <p>Click on each of the icons to see what they represent and some info.</p>
-        <p>When someone says one of them to you, you then say Vegan Bingo! and you go and check it off. A red X will now appear on the screen for that item showing it as checked off.</p>
-        <p>Your aim is to check as many off as possible; one you have done them all you will have achieved Vegan Bingo!</p> 
+        <p>Tap/click each of the icons to see what they represent and some more info.</p>
+        <p>When someone says one of them to you, you then say Vegan Bingo! and you go and check it off. A red <b>X</b> will now appear on the screen for that item showing it as checked off.</p>
+        <p>Your aim is to check as many off as possible; once you have done them all you will have achieved Vegan Bingo!</p> 
         <p>Vegan bingo is a fun game for vegans, not to make fun of non-vegans; remember veganism was new to most of us at one point and we might have asked similar questions.</p>]]></string>
     <string name="restart">Restart</string>
     <string name="restart_text"><![CDATA[<p>Please note this will clear all values and start again.
@@ -39,19 +39,19 @@
     <string name="bacon_main"><![CDATA[<p>This can occur in any number of situations, on a web social thread, in a conversation about food, over dinner etc.</p>
         <p>Often not a lot of thought goes into humour at the expense of animals, so we cannot get too carried away with analysing, but&#8230;</p>
         <p>In Internet terms this could be called a Troll, someone deliberately saying some offensive because they think they are being clever, despite the fact it has little more intelligence or humour in it other than being offensive.</p>
-        <p>In deeper terms this is called a cold joke, trying to paint something as humourous to themselves in order to avoid dealing with the psychological ramifications of the immoral action they are participating in.</p>
+        <p>In deeper terms this could be called a cold joke, trying to paint something as humourous to themselves in order to avoid dealing with the psychological ramifications of the immoral action they are knowingly participating in.</p>
         <p>Bacon, steak, chicken, they are all animals killed for people, the least people who eat them can do is have some respect for them.</p>]]></string>
     <string name="hitler_description">Hitler was a vegetarian</string>
     <string name="hitler_rules">Pol Pot, Charles Manson, anyone who reflects poorly on our species</string>
-    <string name="hitler_main"><![CDATA[<p>Evil people who might have eaten vegetables at one point in their lives are often trudged out as examples of&#8230;well it is hard to say. Really what it is about is the person trying to maintain their own sense of moral righteousness by slanderously associating you with evil people from history.</p>
-        <p>This is of course motivated by the fact that they know they are participating in something immoral, and rather than taking any action to stop this, are using anything they can grab on to to drag other people down to their level.\nHitler, Pol Pot, neither were ethical vegetarians, they did so for short periods due to health problems and Hitler certainly would rather be eating his favourite sausages.</p>
+    <string name="hitler_main"><![CDATA[<p>Evil people who might have eaten vegetables at one point in their lives are often trudged out as examples of&#8230;well it is hard to say. What it is probably about is the person trying to maintain their own sense of self esteem by slanderously associating anyone who may be making a moral choice with evil people from history.</p>
+        <p>They probably know they are participating in something immoral, and rather than taking any action to be a better person, are using whatever they can grab on to to drag other people down.\nHitler, Pol Pot, neither were ethical vegetarians, they did so for short periods due to health problems and Hitler certainly would rather be eating his favourite sausages.</p>
         <p>The Nazis did enact some laws against animal cruelty, they also had the Winter Relief programme helping the poor during the cold months, so they were evil but not every single thing they did necessarily was.</p>
         <p>Ultimately veganism is about compassion for animals; humans are animals so we care about them too.</p>]]></string>
     <string name="protein_description">Where do you get your protein?</string>
     <string name="protein_rules">Iron, B12 is not, because it is a good question&#8230;you should be taking care to get enough in your diet, and a B12 supplement is essential!</string>
-    <string name="protein_main"><![CDATA[<p>Where did people get their obsession with asking about protein? Meat and dairy industry propaganda which reaches far more people than any unbiased nutritional advice.</p>
-        <p>There has never been any study which has shown protein deficiency in people following a plant based diet.  Protein deficiency is unknown in any population who eats enough calories, regardless of what their diet is. There may be some edge cases, but vegetarianism and veganism are not one of them.</p>
-        <p>How much protein do you need? You weight in kilograms times 0.8 to 1.8 depending on how much weight bearing or endurance exercise you do.</p>]]></string>
+    <string name="protein_main"><![CDATA[<p>Where did people get their obsession with asking about protein? Probably meat and dairy industry propaganda which reaches far more people than any unbiased nutritional advice.</p>
+        <p>There has never been any study which has shown protein deficiency in people following a plant based diet.  Protein deficiency is unknown in any population who eats enough calories, period.</p>
+        <p>Of course they also rarely know how much protein they need themselves so let's help them out. Your weight in kilograms times 0.8 to 1.8 depending on how much weight bearing or endurance exercise you do.</p>]]></string>
     <string name="cheese_description">I could never give up cheese</string>
     <string name="cheese_rules">You are not going to need any other answers because you will be hearing this one repeatedly.</string>
     <string name="cheese_main"><![CDATA[<p>Of course the second part of this statement might be - No matter how much cruelty is involved.</p>
