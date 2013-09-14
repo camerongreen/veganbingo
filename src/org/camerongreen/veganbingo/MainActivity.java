@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.GridLayout;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,7 +41,6 @@ public class MainActivity extends Activity {
 	private List<ImageButton> buttons = new ArrayList<ImageButton>();
 	private MyPrefs prefs = null;
 	private int gridSize = 4;
-	private int buttonSizeDp = 80;
 	private TextView timerText;
 
 	private Handler handler = new Handler() {
@@ -52,6 +52,9 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Display display = getWindowManager().getDefaultDisplay();
+		int screenWidth = display.getWidth();
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
@@ -78,8 +81,7 @@ public class MainActivity extends Activity {
 				params.columnSpec = GridLayout.spec(j);
 				btn.setLayoutParams(params);
 
-				float d = getResources().getDisplayMetrics().density;
-				int dimen = (int) (buttonSizeDp * d);
+				int dimen = screenWidth / gridSize;
 				grid.addView(btn, dimen, dimen);
 				buttons.add(btn);
 			}
