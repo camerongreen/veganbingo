@@ -1,102 +1,107 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/mydarkgrey"
-    android:gravity="center"
-    android:paddingTop="0dp" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
     <RelativeLayout
-        android:id="@+id/score_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="0dp"
-        android:gravity="center" >
-
-        <TextView
-            android:id="@+id/main_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/mywhite"
-            android:textSize="18sp" />
-    </RelativeLayout>
-
-    <android.support.v7.widget.GridLayout
-        xmlns:grid="http://schemas.android.com/apk/res/org.camerongreen.veganbingo"
-        android:id="@+id/gridlayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/score_container"
-        android:layout_centerInParent="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:gravity="center"
-        grid:columnCount="4"
-        grid:orientation="horizontal" >
-    </android.support.v7.widget.GridLayout>
+        android:paddingTop="0dp" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gridlayout"
-        android:layout_marginTop="16dp"
-        android:gravity="center" >
+        <RelativeLayout
+            android:id="@+id/score_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center" >
 
-        <TextView
-            android:id="@+id/timer_text"
+            <TextView
+                android:id="@+id/main_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/mywhite"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.GridLayout
+            xmlns:grid="http://schemas.android.com/apk/res/org.camerongreen.veganbingo"
+            android:id="@+id/gridlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="@string/timer_text"
-            android:textColor="@color/mywhite"
-            android:textSize="18sp" />
+            android:layout_below="@+id/score_container"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            grid:columnCount="4"
+            grid:orientation="horizontal" >
+        </android.support.v7.widget.GridLayout>
 
-        <TextView
-            android:id="@+id/timer"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/timer_text"
-            android:textColor="@color/mywhite"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_below="@+id/gridlayout"
+            android:layout_marginTop="16dp"
+            android:gravity="center" >
 
-        <TextView
-            android:id="@+id/started_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/timer_text"
-            android:layout_marginRight="8dp"
-            android:text="@string/started_text"
-            android:textColor="@color/mywhite"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/timer_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:text="@string/timer_text"
+                android:textColor="@color/mywhite"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/started"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/timer"
-            android:layout_toRightOf="@+id/started_text"
-            android:textColor="@color/mywhite"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/timer_text"
+                android:textColor="@color/mywhite"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/finished_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/started_text"
-            android:layout_marginRight="8dp"
-            android:text="@string/finished_text"
-            android:textColor="@color/mywhite"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/started_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/timer_text"
+                android:layout_marginRight="8dp"
+                android:text="@string/started_text"
+                android:textColor="@color/mywhite"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/finished"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/started"
-            android:layout_toRightOf="@+id/finished_text"
-            android:textColor="@color/mywhite"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/started"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/timer"
+                android:layout_toRightOf="@+id/started_text"
+                android:textColor="@color/mywhite"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/finished_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/started_text"
+                android:layout_marginRight="8dp"
+                android:text="@string/finished_text"
+                android:textColor="@color/mywhite"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/finished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/started"
+                android:layout_toRightOf="@+id/finished_text"
+                android:textColor="@color/mywhite"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
     </RelativeLayout>
-
-</RelativeLayout>
+</ScrollView>
