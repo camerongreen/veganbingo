@@ -18,7 +18,7 @@
         <p>This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/.</p>]]></string>
     <string name="howto_play">How to play</string>
     <string name="title_activity_show_howto_screen">How to play</string>
-    <string name="howto_content"><![CDATA[<p>If you know how traditional Bingo works, you are well on the way to understanding <b>Vegan Bingo</a>!  If you don\'t, well worry not, it is simple.</p>
+    <string name="howto_content"><![CDATA[<p>If you know how traditional Bingo works, you are well on the way to understanding <b>Vegan Bingo</p>!  If you don\'t, well worry not, it is simple.</p>
         <p>You start with a board of icons, each one representing common things people say to vegans.</p>
         <p>Tap/click each of the icons to see what they represent and some more info.</p>
         <p>When someone says one of them to you, you then say Vegan Bingo! and you go and check it off. A red <b>X</b> will now appear on the screen for that item showing it as checked off.</p>
@@ -43,7 +43,7 @@
         <p>Often not a lot of thought goes into humour at the expense of animals, so we cannot get too carried away with analysing, but&#8230;</p>
         <p>In Internet terms this could be called a Troll, someone deliberately saying something offensive because they think they are being clever, despite the fact it has little more intelligence or humour in it other than being offensive.</p>
         <p>In deeper terms this could be called a cold joke, trying to paint something as humorous to themselves in order to avoid dealing with the psychological ramifications of the immoral action they are knowingly participating in.</p>
-        <p>Bacon, steak, chicken, they are all animals killed for enjoyment, the least people who eat them can do is have some respect for them.</p>]]></string>
+        <p>Bacon, steak, chicken, they are all animals killed for enjoyment, the least people who pay for that to happen can do is have some respect for them.</p>]]></string>
     <string name="hitler_description">Hitler was a vegetarian</string>
     <string name="hitler_rules">Pol Pot, Charles Manson, anyone who reflects poorly on our species</string>
     <string name="hitler_main"><![CDATA[<p>Evil people who might have eaten vegetables at one point in their lives are often trudged out as examples of&#8230;well it is hard to say. What it is probably about is the person trying to maintain their own sense of self esteem by slanderously associating anyone who may be making a moral choice with evil people from history.</p>
@@ -53,41 +53,41 @@
     <string name="protein_description">Where do you get your protein?</string>
     <string name="protein_rules">Iron.  B12 is not, because vegans do need to take care to supplement this essential vitamin.</string>
     <string name="protein_main"><![CDATA[<p>Where did people get their obsession with asking about protein? Probably meat and dairy industry propaganda which reaches far more people than any unbiased nutritional advice.</p>
-        <p>There has never been any study which has shown protein deficiency in people following a plant based diet.  Protein deficiency is unknown in any population who eats enough calories, period.</p>
+        <p>There has never been any study which has shown protein deficiency in people following a plant based diet.  Protein deficiency is unknown in any population who eats enough calories.</p>
         <p>Of course they also rarely know how much protein they need themselves so let\'s help them out. Your weight in kilograms times 0.8 to 1.8 depending on how much weight bearing or endurance exercise you do.</p>]]></string>
     <string name="cheese_description">I could never give up cheese</string>
     <string name="cheese_rules">You are not going to need any other answers because you will be hearing this one repeatedly.</string>
-    <string name="cheese_main"><![CDATA[<p>Of course the second part of the statement I could never give up cheese should be - no matter how much cruelty is involved.</p>
+    <string name="cheese_main"><![CDATA[<p>The second part of the statement I could never give up cheese should be - no matter how much cruelty is involved.</p>
         <p>Hopefully this is simply untrue though, that instead people can be motivated by rational and ethical concerns.  If people understood that it wasn\'t a particularly healthy thing to eat, contributes to the veal trade in young calves, is environmentally polluting and unhealthy for the cows themselves, hopefully they could find the motivation to replace just one of the hundreds or thousands of ingredients in their diet.</p>
-        <p>There are mock cheeses, personally I don\'t think they are the best of our vegan substitutes, but others like them.  In the end I relate a quote from someone who said, I couldn\'t give up cheese, but I could give up cruelty.</p>]]></string>
+        <p>There are mock cheeses, personally I don\'t think they are the best of our vegan substitutes, but others like them.  In the end I relate a quote from someone who said, I couldn\'t give up cheese, so instead I gave up cruelty.</p>]]></string>
     <string name="cow_description">What would happen to all the cows?</string>
     <string name="cow_rules">Cows like to be milked! It shows a similar complete misunderstanding of how dairy cows are bred and for what purpose.</string>
-    <string name="cow_main"><![CDATA[<p>Cows are not allowed to breed naturally, the idea that they are has more to do with romantic visions of the countryside and how they might once have lived in nature than intensive industrial farming.</p>
+    <string name="cow_main"><![CDATA[<p>Cows are not allowed to breed naturally, the idea that they are has more to do with romantic visions of the countryside and how they might once have lived in nature than intensive industrial animal farming.</p>
         <p>Their breeding is strictly controlled by the farmers and companies engineering their bodies for human purposes, such as growing oversized udders which impair their mobility. The population of livestock rises and falls quickly in relation to human demand.  Veal calves for instance are mainly the by-product of cows artificially inseminated to keep their milk production high.</p>
-        <p>Sadly for animals born as \"livestock\" it is unlikely that a change to a vegan world will happen overnight, it will probably be gradual so carnists can stop losing sleep over the terrible notion of these creatures we brought into being living out their natural lifespans and just go vegan.</p>]]></string>
+        <p>Sadly for animals born as \"livestock\" it is unlikely that a change to a vegan world will happen overnight, it will probably be gradual. Carnists can therefore stop losing sleep over the terrible notion of these creatures living out their natural lifespans and just go vegan.</p>]]></string>
     <string name="plants_description">Don\'t plants have feelings?</string>
     <string name="plants_rules">Carrots scream when you cut them!</string>
     <string name="plants_main"><![CDATA[<p>Sadly people who ask this are likely to care even less about plants than they do non human animals.</p>
-        <p>There is a serious point here, something which would generally elude anyone silly enough to phrase the question this way, and that is where do we draw the line of compassion towards other life.</p>
-        <p>Darwin and the best biologists since him time have understood that our common evolutionary heritage expresses itself in us sharing much of our sentience with other beings.  In understanding how we should treat other beings ethically we should discuss levels of self awareness, the ability to suffer, the presence of a central nervous system, in all of which science should be our guide.</p>
-        <p>Science is confirming the evidence of our experiences, that the non human animals we share our lives with that they have personalities, feelings, hopes etc.  We should draw a line based on our ever advancing knowledge not just at human and non human and if we err in that endeavour let it be on the side of compassion.</p>]]></string>
+        <p>There is a serious point here, something which would generally elude anyone silly enough to phrase the question this way, and that is where do we draw the line of compassion towards other life?</p>
+        <p>Darwin and the best biologists since have understood that our common evolutionary heritage expresses itself in us sharing much of our sentience with other beings.  In understanding how we should treat other beings ethically we should discuss levels of self awareness, the ability to suffer, the presence of a central nervous system, in all of which science should be our guide.</p>
+        <p>Science is confirming the evidence of our experiences, that the non human animals we share our lives with have personalities, feelings, hopes etc.  We should draw a line based on our ever advancing knowledge not just at human and non human.  In the end if we err in that endeavour let us err on the side of compassion.</p>]]></string>
     <string name="teeth_description">What about our canine teeth?</string>
     <string name="teeth_rules">Meat eating caused human brains to grow</string>
     <string name="teeth_main"><![CDATA[<p>Human canine teeth look rather lame compared with the ones sported by our cousins the gorillas, who are either wholly vegan or some eat small insects.  Indeed all primates have canine teeth used mainly for dominance displays and as weapons.</p>
-        <p>It is unfortunate that the name canine has caused so much confusion, however the presence of them provides no justification for cruelty, in either using them to tear the flesh either of innocent animals or rivals from our own species.</p>
+        <p>It is unfortunate that the name canine has caused so much confusion, however the presence of them provides no justification for cruelty, in either using them to tear the flesh either of innocent animals or our human rivals.</p>
         <p>As for meat eating helping our evolution, well it is another source of food so it may have helped in that respect, but the evidence is that it was cooking and the extra starches available in our diet that probably fuelled our brain development, though the jury is still out.</p>
-        <p>Ultimately, it is our conscience not our biology that should be guiding our actions.</p>]]></string>
+        <p>Ultimately, it is our conscience not our biology that should be the main guiding wisdom of our actions.</p>]]></string>
     <string name="humane_description">What if we raised animals more humanely?</string>
     <string name="humane_rules">What if the chickens were raised in your backyard?</string>
     <string name="humane_main"><![CDATA[<p>A lot of people talk about humane farming, but for all the talk few people are rigorous about doing it or supporting it with their money.</p>
         <p>Some people do try to buy some more humane animal products at home, but care little once they leave the house.  Also the pure economics of the livestock industries mean inhumanity is inevitable.  Evidence of this is how some countries have taken the enlightened step to ban caged hens but this has been followed quickly by a loosening of cruelty standards on free range to keep the industry profitable.</p>
         <p>To feed billions of people animal products at every meal, is always going to take an industrial system, a long way removed from the image of the country farm many people have in their minds - not that these were ever a paradise for animals either.</p>
-        <p>Abuses may be less routine in backyard farming, but forced breeding, confinement and killing of other animals for our purposes is never reconcilable with the values of freedom and compassion, and certainly not with the interests of the individual victims involved. </p>]]></string>
+        <p>Abuses may be less routine in backyard farming, but forced breeding, confinement and killing of other animals for our purposes is never reconcilable with the values of freedom and compassion, and certainly not with the interests of the individual victims involved.</p>]]></string>
     <string name="food_description">Why do vegans eat things resembling animal products?</string>
     <string name="food_rules">Asking whether any given vegan alternative is made of tofu&#8230;which is all vegans eat apparently</string>
     <string name="food_main"><![CDATA[<p>For a start, most animal products do not look like animal products.  Cheese, sausages, fish fingers, they are all creations for a culinary purpose.</p>
         <p>Many vegans avoid products resembling animal foods, however others find them to be a convenient and less cruel alternative.</p>
-        <p>It is oppression and violence that we oppose, not a particular ingredient\'s texture, shape or flavour.  Remove the harmful aspects, as vegan products strive to do, and there is no reason not to enjoy whatever pleases you.</p>]]></string>
+        <p>It is oppression and violence that we oppose, not a particular ingredient\'s texture, shape or flavour.  Remove the harmful aspects, as vegan products strive to do, and you can enjoy whatever pleases you.</p>]]></string>
     <string name="natural_description">Meat eating is natural</string>
     <string name="natural_rules">Making appeals that it has been done for a long time.</string>
     <string name="natural_main"><![CDATA[<p>As much as humans wish for a moral universe, the laws which govern it are amoral.  Good things happen to bad people, terrible things happen to good people, all governed by elegant but soulless mathematical principles.</p>
@@ -96,15 +96,15 @@
         <p>Finally to call the modern factory farming system natural, is to render the word meaningless. Freedom is the natural state every sentient being desires.</p>]]></string>
     <string name="eat_description">What can you eat?</string>
     <string name="eat_rules">Oh you are vegan, that must be hard.</string>
-    <string name="eat_main"><![CDATA[<p>On becoming vegan people discover an expanded world opf delicious ingredients to explore.  Many people also use the process of becoming vegan to transition to a healthier diet.</p>
+    <string name="eat_main"><![CDATA[<p>On becoming vegan people discover an expanded world of delicious ingredients to explore.  Many people also use the process of becoming vegan to transition to a healthier diet.</p>
         <p>90% of any healthy diet is already vegan, and the other 10% we replace with nuts, seeds, beans, legumes, grains, tofu, tempeh, seitan, the ever widening variety of convenient substitute products and plant based milks, soy, almond, oat, rice, hemp, quinoa and coconut.</p>
-        <p>Being vegan is not hard, as much as people might prefer to think it is.  The only hard thing that makes it trying sometimes is the knowledge that there aren\'t more of us.</p>]]></string>
+        <p>Being vegan is not hard, as much as people might prefer to think it is.  The main thing that makes it trying sometimes is the knowledge that there aren\'t more of us.</p>]]></string>
     <string name="notmuch_description">I don\'t each much meat</string>
     <string name="notmuch_rules">Telling you they ate a vegetarian meal recently</string>
     <string name="notmuch_main"><![CDATA[<p>This is a positive and healthy statement, but often people who assert this eat meat at almost every meal.</p>
         <p>Our ideas of what a normal diet is are culturally shaped.  The fact that someone eats less meat than their unhealthy friend, or chooses fish or chicken instead of red meat, does not equate to not eating much meat.</p>
         <p>The average person eats much more meat than is considered healthy. Per capita animal product consumption has risen far above even recent historical levels in many countries.</p>
-        <p>If you have more days vegetarian than otherwise, you might be able to claim to be not eating much meat, otherwise you are probably eating more than you should.</p>
+        <p>If someone has more days vegetarian than otherwise, then they might be able to claim to be not eating much meat, otherwise they are probably eating more than they should.</p>
         <p>Obviously for the animals who live and die in agribusiness systems before ending up on a dinner plate, the optimal amount would be zero.</p>]]></string>
     <string name="what_description">What about people?</string>
     <string name="what_rules">Some people care more about animals than they do people.</string>
@@ -122,12 +122,12 @@
     <string name="aspirational_description">I\'d like to be vegan, but&#8230;</string>
     <string name="aspirational_rules">I was vegan/vegetarian but &#8230;</string>
     <string name="aspirational_main"><![CDATA[<p>The more mainstream veganism becomes and the more society understands the multitude of reasons for living vegan, the more we hear this.  It\'s a sign that veganism has arrived.</p>
-        <p>Of course as vegans we know it\'s easy to be vegan in most places, and we can get by in most others with a bag of nuts, some nice bread and a decent salad.  Why people don\'t make the transition has more to do with habit and conformity than anything else.</p>
+        <p>Of course as vegans we know it\'s easy to be vegan in most places, and we can get by in most others with a bag of nuts, some bread and a decent salad.  Why people don\'t make the transition has more to do with habit and conformity than anything else.</p>
         <p>Each time a person says this is a chance to help them achieve an aspiration for themselves.  Gently gently, we might start by showing them all the free online resources online to help them, the local shops or restaurants stocking vegan products, and probably the most convincing advocacy: introducing them to delicious vegan food.</p>
-        <p>For people who used to be vegetarian or vegan, it\'s often the case that they return to it when their mindset and life is in the right place later on.  Helping people who are already aware of the need for change is one of the most fruitful forms of activism.</p>]]></string>
+        <p>For people who used to be vegetarian or vegan, it\'s often the case that they return to it when their mindset and life is in the right place.  Helping people who are already aware of the need for change is one of the most fruitful forms of activism.</p>]]></string>
     <string name="preachy_description">Vegans are preachy</string>
     <string name="preachy_rules">Each to their own or the sadly ironic live and let live.</string>
-    <string name="preachy_main"><![CDATA[<p>OK, there are some preachy vegans who need to chill out, but as vegans reflect the diversity of people generally there isn\'t a stereotype.  Anyone who has had bad experiences with a preachy vegan though should try being vegan for a while and see how the reverse is just as true.</p>
+    <string name="preachy_main"><![CDATA[<p>OK, there are some preachy vegans who need to chill out, but as vegans reflect the diversity of people generally there isn\'t a stereotype.  Anyone who has had bad experiences with a preachy vegan though should try being vegan for a while and see how the reverse is also true.</p>
         <p>This comes down to people\'s idea of what life is all about, some think it is just about being popular and conforming, and they can\'t understand people who would expend their social capital advocating ethical beliefs.  They might even express this point of view in cliches such as "to each their own" or "live and let live".  But as frustrating as we might find this, getting upset with someone is likely to be counter-productive.</p>
         <p>We can speak the best for animals by engaging peoples compassion rather than their self defensiveness.  Positive people living in alignment with their ideals are the best advocates for veganism.</p>]]></string>
 </resources>
