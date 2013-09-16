@@ -18,7 +18,7 @@
         <p>This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/.</p>]]></string>
     <string name="howto_play">How to play</string>
     <string name="title_activity_show_howto_screen">How to play</string>
-    <string name="howto_content"><![CDATA[<p>If you know how traditional Bingo works, you are well on the way to understanding <b>Vegan Bingo</p>!  If you don\'t, well worry not, it is simple.</p>
+    <string name="howto_content"><![CDATA[<p>If you know how traditional Bingo works, you are well on the way to understanding <b>Vegan Bingo</b>!  If you don\'t, well worry not, it is simple.</p>
         <p>You start with a board of icons, each one representing common things people say to vegans.</p>
         <p>Tap/click each of the icons to see what they represent and some more info.</p>
         <p>When someone says one of them to you, you then say Vegan Bingo! and you go and check it off. A red <b>X</b> will now appear on the screen for that item showing it as checked off.</p>
