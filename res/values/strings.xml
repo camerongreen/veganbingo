@@ -14,6 +14,9 @@
         <p>You can chat more about Vegan Bingo, post your times etc at:<br />
         http://facebook.com/veganbingo
         </p>
+        <p>To read the privacy terms or other FAQs about the app:<br />
+        http://camerongreen.org/a/veganbino
+        </p>
         <p>Inspired by the original Rationalization Bingo in Vegnews.</p>
         <p>This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/.</p>]]></string>
     <string name="howto_play">How to play</string>
@@ -54,7 +57,7 @@
     <string name="protein_rules">Iron.  B12 is not, because vegans do need to take care to supplement this essential vitamin.</string>
     <string name="protein_main"><![CDATA[<p>Where did people get their obsession with asking about protein? Probably meat and dairy industry propaganda which reaches far more people than any unbiased nutritional advice.</p>
         <p>There has never been any study which has shown protein deficiency in people following a plant based diet.  Protein deficiency is unknown in any population who eats enough calories.</p>
-        <p>Of course they also rarely know how much protein they need themselves so let\'s help them out. Your weight in kilograms times 0.8 to 1.8 depending on how much weight bearing or endurance exercise you do.</p>]]></string>
+        <p>Of course they also rarely know how much protein they need themselves so let\'s help them out. Your weight in kilograms times 0.8 to 1.8 grams depending on how much weight bearing or endurance exercise you do.</p>]]></string>
     <string name="cheese_description">I could never give up cheese</string>
     <string name="cheese_rules">You are not going to need any other answers because you will be hearing this one repeatedly.</string>
     <string name="cheese_main"><![CDATA[<p>The second part of the statement I could never give up cheese should be - no matter how much cruelty is involved.</p>
@@ -74,7 +77,7 @@
     <string name="teeth_description">What about our canine teeth?</string>
     <string name="teeth_rules">Meat eating caused human brains to grow</string>
     <string name="teeth_main"><![CDATA[<p>Human canine teeth look rather lame compared with the ones sported by our cousins the gorillas, who are either wholly vegan or some eat small insects.  Indeed all primates have canine teeth used mainly for dominance displays and as weapons.</p>
-        <p>It is unfortunate that the name canine has caused so much confusion, however the presence of them provides no justification for cruelty, in either using them to tear the flesh either of innocent animals or our human rivals.</p>
+        <p>It is unfortunate that the name canine has caused so much confusion, however the presence of them provides no justification for cruelty whether using them to tear the flesh of innocent animals or of our human rivals.</p>
         <p>As for meat eating helping our evolution, well it is another source of food so it may have helped in that respect, but the evidence is that it was cooking and the extra starches available in our diet that probably fuelled our brain development, though the jury is still out.</p>
         <p>Ultimately, it is our conscience not our biology that should be the main guiding wisdom of our actions.</p>]]></string>
     <string name="humane_description">What if we raised animals more humanely?</string>
