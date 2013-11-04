@@ -33,8 +33,8 @@ public class MainActivity extends Activity {
 	public static String PACKAGE_NAME;
 
 	public final static String BUTTON_CLICKED = "org.camerongreen.veganbingo.BUTTON";
-	public final static String[] choices = { "bacon", "preachy", "protein",
-			"cheese", "cow", "plants", "teeth", "food", "natural", "humane",
+	public final static String[] choices = { "protein",
+			"cheese", "bacon", "preachy", "cow", "plants", "teeth", "food", "natural", "humane",
 			"eat", "notmuch", "what", "cant", "aspirational", "hitler" };
 	public final static String[] colours = { "mygreen", "myblue", "mypink",
 			"myyellow", "mypink", "myyellow", "mygreen", "myblue" };
